@@ -77,7 +77,8 @@
 .circuit-part.is-decaying { color: var(--section-blue); }
 .circuit-flow { stroke: white; stroke-width: 2; opacity: 0; }
 .circuit-flow.flowing { opacity: 1; }
-.diagram-labels, #rl-grid { fill: #d2d2d2; font-size: 17px; }
+.diagram-labels, #rl-grid { fill: #d2d2d2; font: 17px var(--math-font); }
+.diagram-labels text:nth-child(n + 3), #rl-grid .axis-label { font-style: italic; }
 .chart-axis, .chart-guide { fill: none; stroke: #737373; }
 .chart-guide { stroke: #414141; stroke-dasharray: 3 5; }
 .chart-curve { stroke-width: 3; }
@@ -114,14 +115,15 @@
 .theory-catalog .theory-note h2 { margin: 0 0 16px; }
 .theory-catalog .theory-note h3 { margin: 24px 0 8px; }
 .theory-catalog .lesson > p, .theory-empty, .theory-catalog .equation-grid span { color: var(--light-muted); }
-.theory-catalog .equation-grid div { background: #f5f5f5; border-color: var(--edge); }
-.theory-catalog .equation-grid strong { color: #2347a0; }
+.theory-catalog .equation-grid > div { background: #f5f5f5; border-color: var(--edge); }
+.theory-catalog .equation-grid .math-display { color: #2347a0; margin: 0; }
+.measurements-equations { max-width: 580px; margin: 14px 0; }
+.measurements-equations .math-display { color: var(--section-blue); margin: 0; }
 .theory-catalog .primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
 .theory-catalog .primary:hover { background: #252525; border-color: #252525; color: var(--white); }
 .equation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 25px; }
-.equation-grid div { display: grid; align-content: start; gap: 8px; padding: clamp(13px, 3vw, 25px); border-radius: 13px; border: 1px solid var(--line); background: var(--panel); }
+.equation-grid > div { display: grid; align-content: start; gap: 8px; padding: clamp(13px, 3vw, 25px); border-radius: 13px; border: 1px solid var(--line); background: var(--panel); }
 .equation-grid span { color: var(--muted); font-size: .9rem; }
-.equation-grid strong { color: var(--section-blue); font-size: clamp(1.1rem, 3vw, 1.75rem); }
 .measurements { overflow: auto; margin-top: 22px; border: 1px solid var(--line); border-radius: 13px; }
 .measurements table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
 .measurements th, .measurements td { padding: 12px clamp(7px, 2vw, 18px); white-space: nowrap; }
@@ -133,4 +135,7 @@
   .sim-workspace { display: contents; }
   .sim-controls { border-left: 0; border-top: 1px solid var(--line); }
   .sim-chart { order: 1; }
+}
+@media (max-width: 460px) {
+  .theory-catalog .equation-grid { grid-template-columns: 1fr; }
 }

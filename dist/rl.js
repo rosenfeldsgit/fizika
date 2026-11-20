@@ -37,7 +37,7 @@ function draw() {
   const px = (t) => plot.left + (plot.right - plot.left) * (t - start) / width;
   const py = (i) => plot.bottom - (plot.bottom - plot.top) * i / parameters.limit;
 
-  let lines = '<path class="chart-axis" d="M65 26V196H525"/><text x="15" y="19">I, А</text><text x="535" y="201">t, с</text>';
+  let lines = '<path class="chart-axis" d="M65 26V196H525"/><text x="15" y="19"><tspan class="axis-label">I</tspan>, А</text><text x="535" y="201"><tspan class="axis-label">t</tspan>, с</text>';
   for (let j = 0; j <= 4; j++) {
     const level = j / 4 * parameters.limit;
     const y = py(level);

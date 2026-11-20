@@ -10,10 +10,11 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="dist/assets/icons/logo.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="dist/assets/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="dist/styles.css">
+  <link rel="stylesheet" href="dist/styles.css?v=math-1">
   <script src="dist/topics.js" defer></script>
   <script src="dist/app.js" defer></script>
-  <script src="dist/site-menu.js" defer></script>
+  <script src="dist/site-menu.js?v=math-1" defer></script>
+  <script src="dist/motion.js?v=math-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
@@ -124,7 +125,7 @@
       </svg>
       <figcaption>Предмет находится на двойном фокусном расстоянии.</figcaption>
     </figure>
-    <p class="formula">1/f = 1/d + 1/b</p>
+    <div class="math-display"><math display="block"><mrow><mfrac><mn>1</mn><mi>f</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>d</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>b</mi></mfrac></mrow></math></div>
     <p><var>f</var> — фокусное расстояние, <var>d</var> — расстояние до предмета, <var>b</var> — расстояние до изображения со знаком. Если <var>b</var> отрицательно, изображение мнимое и находится со стороны предмета.</p>
     <a class="pill primary" href="#experiment" data-close-dialog>Проверить на опыте</a>
   </template>

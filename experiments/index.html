@@ -10,10 +10,11 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="../dist/assets/icons/logo.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="../dist/assets/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="../manifest.webmanifest">
-  <link rel="stylesheet" href="../dist/styles.css">
-  <link rel="stylesheet" href="../dist/sections.css">
-  <script src="../dist/rl.js" defer></script>
-  <script src="../dist/site-menu.js" defer></script>
+  <link rel="stylesheet" href="../dist/styles.css?v=math-1">
+  <link rel="stylesheet" href="../dist/sections.css?v=math-1">
+  <script src="../dist/rl.js?v=math-1" defer></script>
+  <script src="../dist/site-menu.js?v=math-1" defer></script>
+  <script src="../dist/motion.js?v=math-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
@@ -87,7 +88,7 @@
         <p id="rl-state" class="sim-status" aria-live="polite">Ключ разомкнут. Тока нет.</p>
         <dl class="sim-readouts">
           <div><dt>Ток <var>I</var></dt><dd id="rl-current">0 А</dd></div>
-          <div><dt>ЭДС <var>ℰ</var><sub>си</sub></dt><dd id="rl-emf">0 В</dd></div>
+          <div><dt>ЭДС <math><mrow><msub><mi>ℰ</mi><mtext>си</mtext></msub></mrow></math></dt><dd id="rl-emf">0 В</dd></div>
           <div><dt>Постоянная времени <var>τ</var></dt><dd id="rl-tau"></dd></div>
           <div><dt>Время модели <var>t</var></dt><dd id="rl-time">0 с</dd></div>
         </dl>
@@ -95,7 +96,8 @@
     </section>
     <section class="lesson" aria-labelledby="rl-summary">
       <h2 id="rl-summary">Почему ток меняется постепенно</h2>
-      <p>ЭДС самоиндукции <strong>ℰ<sub>си</sub> = −L · dI/dt</strong> противодействует изменению тока. При замыкании ток растёт к <var>U/R</var>, и ЭДС направлена против тока. При размыкании цепи источника ключ сразу переводит катушку в замкнутый контур с резистором. Ток продолжает течь в прежнем направлении и постепенно убывает, а знак ЭДС меняется.</p>
+      <div class="math-display"><math display="block"><mrow><msub><mi>ℰ</mi><mtext>си</mtext></msub><mo>=</mo><mo>−</mo><mi>L</mi><mo>·</mo><mfrac><mrow><mi mathvariant="normal">d</mi><mi>I</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>t</mi></mrow></mfrac></mrow></math></div>
+      <p>ЭДС самоиндукции противодействует изменению тока. При замыкании ток растёт к <math><mrow><mfrac><mi>U</mi><mi>R</mi></mfrac></mrow></math>, и ЭДС направлена против тока. При размыкании цепи источника ключ сразу переводит катушку в замкнутый контур с резистором. Ток продолжает течь в прежнем направлении и постепенно убывает, а знак ЭДС меняется.</p>
       <a class="pill" href="../theory/#rl-circuit">Формулы самоиндукции</a>
     </section>
   </main>
