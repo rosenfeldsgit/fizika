@@ -61,7 +61,7 @@ figure, p, h1, h2, ul { margin: 0; }
   column-gap: 28px;
 }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 20px; font-weight: 600; justify-self: start; }
-.mark { display: block; width: 30px; height: 25px; flex: none; color: var(--white); }
+.mark { display: block; width: 40px; height: 40px; flex: none; }
 nav { display: flex; gap: clamp(22px, 3vw, 42px); align-items: center; color: var(--muted); font-size: .9rem; }
 nav a:hover, .nav-main { color: var(--white); }
 .pill {
@@ -242,7 +242,7 @@ dialog::backdrop { background: rgb(12 10 17 / 72%); backdrop-filter: blur(4px); 
   .top nav { display: none; }
   .header-link { min-width: 0; padding: 0 15px; min-height: 40px; }
   .brand { font-size: 1.07rem; gap: 6px; }
-  .mark { width: 26px; height: 22px; }
+  .mark { width: 36px; height: 36px; }
   .hero { display: block; min-height: 0; padding: 12px 0 26px; }
   .wave { margin: 0; }
   .wave-stage { aspect-ratio: 1.37; }
