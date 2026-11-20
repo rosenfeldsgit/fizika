@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Атлас физики для ЕГЭ: конспекты, схемы, интерактивные опыты и лабораторные работы.">
+  <title>Атлас физики · Подготовка к ЕГЭ</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="./" aria-label="Атлас физики, главная"><svg class="mark" viewBox="0 0 32 26" aria-hidden="true"><circle cx="24" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="11.5" cy="14.5" r="9.4" fill="var(--ink)" stroke="currentColor" stroke-width="3.6"/></svg>Атлас физики</a>
+    <nav aria-label="Разделы сайта">
+      <a href="#atlas" class="nav-main">Атлас</a>
+      <a href="#experiment">Опыты</a>
+      <a href="#laboratory" data-lab>Лабораторные</a>
+    </nav>
+    <a href="#atlas" class="pill header-link">К темам</a>
+  </header>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="wave" aria-hidden="true">
+        <div class="wave-stage"><canvas id="wave-canvas" width="720" height="510"></canvas></div>
+      </div>
+      <div class="hero-copy">
+        <h1 id="hero-title">Атлас<br>физики</h1>
+        <p class="hero-description">Конспекты, схемы и интерактивные опыты<br class="wide-break"> для подготовки к ЕГЭ.</p>
+        <div class="actions">
+          <a class="pill primary" href="#atlas">Открыть атлас</a>
+          <a class="pill" href="#experiment">Попробовать опыт</a>
+        </div>
+      </div>
+    </section>
+    <section id="atlas" class="catalog" aria-labelledby="catalog-title">
+      <div class="shell">
+        <div class="catalog-heading">
+          <div>
+            <p class="eyebrow">Каталог</p>
+            <h2 id="catalog-title">Разделы физики</h2>
+          </div>
+          <label class="search">
+            <span class="search-icon" aria-hidden="true"></span>
+            <span class="sr-only">Поиск по темам</span>
+            <input id="topic-search" type="search" placeholder="Поиск по темам" autocomplete="off">
+          </label>
+        </div>
+        <ul class="topic-list" id="topic-list"></ul>
+        <p class="empty" id="no-results" hidden role="status">Темы не найдены. Попробуй «линза» или «кинетика».</p>
+      </div>
+    </section>
+    <section id="experiment" class="experiment shell" aria-labelledby="experiment-title">
+      <h2 id="experiment-title">Тонкая линза</h2>
+      <div class="bench">
+        <div class="bench-figure">
+          <p class="panel-label">Ход лучей</p>
+          <svg id="ray-diagram" viewBox="0 0 800 225" role="img" aria-label="Ход лучей через собирающую линзу">
+            <defs>
+              <pattern id="grid" width="38" height="28" patternUnits="userSpaceOnUse"><path d="M38 0H0V28" fill="none" stroke="#252525" stroke-width="1"/></pattern>
+              <clipPath id="plot"><rect width="800" height="225"/></clipPath>
+            </defs>
+            <rect width="800" height="225" fill="url(#grid)"/>
+            <g clip-path="url(#plot)">
+              <path d="M0 112H800" stroke="#666666" fill="none"/>
+              <path d="M400 10Q438 112 400 214Q362 112 400 10Z" fill="#001957" stroke="var(--lab-blue)" stroke-width="1.4"/>
+              <g id="focal-points" fill="var(--lab-blue)"></g>
+              <g id="rays" fill="none" stroke="var(--lab-orange)" stroke-width="1.6" stroke-linecap="round"></g>
+              <g id="objects" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></g>
+            </g>
+          </svg>
+        </div>
+        <div class="bench-controls">
+          <p class="panel-label">Параметры</p>
+          <div class="control">
+            <label for="distance">Расстояние до предмета</label>
+            <output id="distance-value" for="distance">24 см</output>
+            <input type="range" id="distance" min="6" max="54" value="24">
+          </div>
+          <div class="control">
+            <label for="focus">Фокусное расстояние</label>
+            <output id="focus-value" for="focus">12 см</output>
+            <input type="range" id="focus" min="6" max="24" value="12">
+          </div>
+          <div class="reading" aria-live="polite" aria-atomic="true">
+            <span>Изображение</span>
+            <output id="image-distance" for="distance focus">24 см</output>
+            <span id="image-type">Действительное, перевёрнутое</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell foot">
+    <a class="brand" href="./"><svg class="mark" viewBox="0 0 32 26" aria-hidden="true"><circle cx="24" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="11.5" cy="14.5" r="9.4" fill="var(--ink)" stroke="currentColor" stroke-width="3.6"/></svg>Атлас физики</a>
+    <a href="#laboratory" data-lab>Лабораторная работа</a>
+  </footer>
+  <dialog id="material" aria-labelledby="material-title">
+    <div class="material-body">
+      <button class="close" type="button" aria-label="Закрыть" autofocus>×</button>
+      <p id="material-kicker" class="eyebrow"></p>
+      <h2 id="material-title"></h2>
+      <div id="material-content"></div>
+    </div>
+  </dialog>
+  <template id="lens-note">
+    <p>Собирающая линза отклоняет лучи, идущие параллельно главной оптической оси, к фокусу. Луч через оптический центр в модели тонкой линзы идёт прямо.</p>
+    <figure class="note-figure">
+      <svg viewBox="0 0 460 170" role="img" aria-label="Два луча от вершины предмета сходятся справа от линзы, образуя перевёрнутое изображение">
+        <path d="M15 85H445" stroke="#817982" stroke-dasharray="4 4"/>
+        <path d="M230 13Q258 85 230 157Q202 85 230 13Z" fill="#efebff" stroke="#6200ee"/>
+        <path d="M70 38H230L390 132 M70 38L390 132" stroke="#d90021" stroke-width="2" fill="none"/>
+        <path d="M70 85V38m-5 5l5-5l5 5 M390 85v47m-5 -5l5 5l5-5" stroke="#211c25" stroke-width="2" fill="none"/>
+        <circle cx="150" cy="85" r="3" fill="#6200ee"/><circle cx="310" cy="85" r="3" fill="#6200ee"/>
+        <text x="146" y="104">F</text><text x="306" y="104">F</text>
+      </svg>
+      <figcaption>Предмет находится на двойном фокусном расстоянии.</figcaption>
+    </figure>
+    <p class="formula">1/f = 1/d + 1/b</p>
+    <p><var>f</var> — фокусное расстояние, <var>d</var> — расстояние до предмета, <var>b</var> — расстояние до изображения со знаком. Если <var>b</var> отрицательно, изображение мнимое и находится со стороны предмета.</p>
+    <a class="pill primary" href="#experiment" data-close-dialog>Проверить на опыте</a>
+  </template>
+  <template id="lens-lab">
+    <p>Измерь фокусное расстояние собирающей линзы по положению предмета и его действительного изображения.</p>
+    <ol>
+      <li>В симуляторе установи фокусное расстояние 12 см и расстояние до предмета 24 см.</li>
+      <li>Запиши расстояние до изображения. Повтори измерение при 30 и 36 см.</li>
+      <li>Для каждой пары значений вычисли <var>f = db / (d + b)</var> и сравни результат с настройкой линзы.</li>
+    </ol>
+    <a class="pill primary" href="#experiment" data-close-dialog>Открыть симулятор</a>
+  </template>
+</body>
+</html>
