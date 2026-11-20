@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Интерактивная RL-цепь. Ток и ЭДС самоиндукции при переключении ключа.">
+  <title>Опыты · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="stylesheet" href="../dist/styles.css">
+  <link rel="stylesheet" href="../dist/sections.css">
+  <script src="../dist/rl.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <nav aria-label="Разделы сайта">
+      <a href="../theory/">Теория</a>
+      <a href="../experiments/" aria-current="page">Опыты</a>
+      <a href="../labs/">Лабораторные</a>
+    </nav>
+    <a href="../#atlas" class="pill header-link">К темам</a>
+  </header>
+  <main id="main" class="shell section-page">
+    <header class="section-heading">
+      <p class="eyebrow section-category">Опыты · Электродинамика</p>
+      <h1>Ток и ЭДС самоиндукции в катушке</h1>
+      <p>Замкни ключ и дождись, пока ток вырастет. Затем разомкни его и сравни ход тока и знак ЭДС.</p>
+    </header>
+    <section class="simulator" aria-label="Интерактивная RL-цепь">
+      <div class="sim-workspace">
+        <figure class="sim-figure">
+          <figcaption class="panel-label">Схема цепи</figcaption>
+          <svg class="circuit" viewBox="0 0 560 228" role="img" aria-labelledby="circuit-title">
+            <title id="circuit-title">Источник отключён, катушка соединена с резистором</title>
+            <g class="circuit-part" id="source-branch">
+              <path d="M144 58H55V106 M32 106H78 M42 121H68 M55 121V183H115"/>
+              <circle cx="144" cy="58" r="4"/>
+            </g>
+            <g class="circuit-part" id="return-branch">
+              <path d="M144 119H115V183"/>
+              <circle cx="144" cy="119" r="4"/>
+            </g>
+            <g class="circuit-part" id="load-branch">
+              <path d="M200 89H237 M237 89l8 -12l13 24l13 -24l13 24l13 -24l13 24l8 -12h33 M351 89A11 11 0 0 1 373 89A11 11 0 0 1 395 89A11 11 0 0 1 417 89A11 11 0 0 1 439 89H508V183H115"/>
+              <circle cx="200" cy="89" r="4"/>
+              <circle cx="115" cy="183" r="4"/>
+              <path id="switch-arm" d="M200 89L144 119"/>
+            </g>
+            <path id="flow-arrow" class="circuit-flow" d="M491 112v36m-7 -8l7 8l7 -8"/>
+            <g class="diagram-labels">
+              <text x="28" y="84">+</text><text x="29" y="149">−</text>
+              <text x="55" y="211" text-anchor="middle">U</text>
+              <text x="183" y="43">K</text>
+              <text x="279" y="66" text-anchor="middle">R</text>
+              <text x="395" y="66" text-anchor="middle">L</text>
+              <text x="516" y="142">I</text>
+            </g>
+          </svg>
+        </figure>
+        <figure class="sim-figure sim-chart">
+          <figcaption class="panel-label">График тока</figcaption>
+          <svg id="rl-graph" viewBox="0 0 560 238" role="img" aria-label="График силы тока I в амперах по времени t в секундах">
+            <g id="rl-grid"></g>
+            <g id="rl-curves"></g>
+            <circle id="rl-cursor" r="4" fill="white"/>
+          </svg>
+          <div class="chart-key" aria-label="Цвета графика"><span>Источник подключён</span><span>Источник отключён</span></div>
+        </figure>
+      </div>
+      <aside class="sim-controls" aria-label="Управление опытом">
+        <p class="panel-label">Параметры цепи</p>
+        <div class="sim-slider"><label for="rl-voltage">Напряжение <var>U</var></label><output id="rl-voltage-value" for="rl-voltage"></output><input id="rl-voltage" type="range" min="6" max="24" step="1" value="12"></div>
+        <div class="sim-slider"><label for="rl-resistance">Сопротивление <var>R</var></label><output id="rl-resistance-value" for="rl-resistance"></output><input id="rl-resistance" type="range" min="2" max="12" step="1" value="6"></div>
+        <div class="sim-slider"><label for="rl-inductance">Индуктивность <var>L</var></label><output id="rl-inductance-value" for="rl-inductance"></output><input id="rl-inductance" type="range" min="0.5" max="4" step="0.5" value="3"></div>
+        <p class="sim-hint">Изменение параметров начинает новый опыт.</p>
+        <div class="sim-actions">
+          <button class="pill primary" id="rl-switch" type="button">Замкнуть ключ</button>
+          <button class="pill" id="rl-reset" type="button">Сбросить</button>
+        </div>
+        <p id="rl-state" class="sim-status" aria-live="polite">Ключ разомкнут. Тока нет.</p>
+        <dl class="sim-readouts">
+          <div><dt>Ток <var>I</var></dt><dd id="rl-current">0 А</dd></div>
+          <div><dt>ЭДС <var>ℰ</var><sub>си</sub></dt><dd id="rl-emf">0 В</dd></div>
+          <div><dt>Постоянная времени <var>τ</var></dt><dd id="rl-tau"></dd></div>
+          <div><dt>Время модели <var>t</var></dt><dd id="rl-time">0 с</dd></div>
+        </dl>
+      </aside>
+    </section>
+    <section class="lesson" aria-labelledby="rl-summary">
+      <h2 id="rl-summary">Почему ток меняется постепенно</h2>
+      <p>ЭДС самоиндукции <strong>ℰ<sub>си</sub> = −L · dI/dt</strong> противодействует изменению тока. При замыкании ток растёт к <var>U/R</var>, и ЭДС направлена против тока. При размыкании цепи источника ключ сразу переводит катушку в замкнутый контур с резистором. Ток продолжает течь в прежнем направлении и постепенно убывает, а знак ЭДС меняется.</p>
+      <a class="pill" href="../theory/#rl-circuit">Формулы самоиндукции</a>
+    </section>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>

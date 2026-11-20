@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Виртуальная школьная лабораторная по определению ускорения свободного падения с помощью маятника.">
+  <title>Лабораторные · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="stylesheet" href="../dist/styles.css">
+  <link rel="stylesheet" href="../dist/sections.css">
+  <script src="../dist/pendulum.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <nav aria-label="Разделы сайта">
+      <a href="../theory/">Теория</a>
+      <a href="../experiments/">Опыты</a>
+      <a href="../labs/" aria-current="page">Лабораторные</a>
+    </nav>
+    <a href="../#atlas" class="pill header-link">К темам</a>
+  </header>
+  <main id="main" class="shell section-page">
+    <header class="section-heading">
+      <p class="eyebrow section-category">Лабораторные · Механика · 10–11 класс</p>
+      <h1>Как измерить <var>g</var> с помощью маятника</h1>
+      <p>Измерь время нескольких колебаний. Повтори опыт с тремя разными длинами нити и сравни результаты.</p>
+    </header>
+    <section class="simulator" aria-label="Виртуальная установка с маятником">
+      <div class="sim-workspace">
+        <figure class="sim-figure pendulum-figure">
+          <figcaption class="panel-label">Математический маятник</figcaption>
+          <svg viewBox="0 0 560 318" role="img" aria-label="Груз на нити, отклонённый от вертикали">
+            <path class="guide-line" d="M280 50V294"/>
+            <path class="pendulum-support" d="M239 48h82m-76 0l8-10m6 10l8-10m6 10l8-10m6 10l8-10m6 10l8-10"/>
+            <path id="pendulum-arc" class="guide-line"/>
+            <g id="pendulum-arm">
+              <line id="pendulum-string" class="pendulum-string" x1="280" y1="50" x2="280" y2="210"/>
+              <circle id="pendulum-bob" cx="280" cy="210" r="14" fill="#ff8a26"/>
+            </g>
+            <circle cx="280" cy="50" r="5" fill="white"/>
+          </svg>
+        </figure>
+      </div>
+      <aside class="sim-controls" aria-label="Управление измерением">
+        <p class="panel-label">Настройка установки</p>
+        <div class="sim-slider"><label for="pendulum-length">Длина нити <var>ℓ</var></label><output id="pendulum-length-value" for="pendulum-length"></output><input id="pendulum-length" type="range" min="0.25" max="1.25" step="0.05" value="0.75"></div>
+        <div class="sim-slider"><label for="pendulum-count">Число колебаний <var>N</var></label><output id="pendulum-count-value" for="pendulum-count"></output><input id="pendulum-count" type="range" min="5" max="15" step="5" value="10"></div>
+        <div class="sim-actions">
+          <button class="pill primary" id="pendulum-start" type="button">Запустить измерение</button>
+          <button class="pill" id="pendulum-record" type="button" disabled>Записать результат</button>
+        </div>
+        <p id="pendulum-status" class="sim-status" aria-live="polite">Начальное отклонение 8°. Секундомер модели ускорен в 4 раза.</p>
+        <dl class="sim-readouts">
+          <div><dt>Секундомер</dt><dd id="pendulum-time">0 с</dd></div>
+          <div><dt>Полные колебания</dt><dd id="pendulum-cycles">0</dd></div>
+          <div><dt>Период <var>T</var></dt><dd id="pendulum-period">—</dd></div>
+          <div><dt>Ускорение <var>g</var></dt><dd id="pendulum-gravity">—</dd></div>
+        </dl>
+      </aside>
+    </section>
+    <section class="lesson" aria-labelledby="measurement-title">
+      <h2 id="measurement-title">Журнал измерений</h2>
+      <p>Период <strong>T = t/N</strong>. Для малых углов <strong>g = 4π²ℓ/T²</strong>. Секундомер округляет измеренное время <var>t</var> до сотых секунды.</p>
+      <div class="measurements">
+        <table>
+          <thead><tr><th scope="col">Замер</th><th scope="col">ℓ, м</th><th scope="col">N</th><th scope="col">t, с</th><th scope="col">T, с</th><th scope="col">g, м/с²</th></tr></thead>
+          <tbody id="pendulum-results"><tr id="pendulum-empty"><td colspan="6">Пока нет замеров.</td></tr></tbody>
+          <tfoot><tr><th scope="row" colspan="5">Среднее <var>g</var>, м/с²</th><td id="pendulum-average">—</td></tr></tfoot>
+        </table>
+      </div>
+      <button class="pill" id="pendulum-clear" type="button" disabled>Очистить таблицу</button>
+    </section>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>

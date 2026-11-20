@@ -91,12 +91,30 @@ materialClose.addEventListener("click", () => material.close());
 material.addEventListener("click", (event) => {
   if (event.target === material || event.target.closest("[data-close-dialog]")) material.close();
 });
-for (const link of document.querySelectorAll("[data-lab]")) {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    showMaterial("Лабораторная работа · Оптика", "Как измерить фокусное расстояние", byId("lens-lab").content.cloneNode(true));
-  });
+
+const slogan = byId("slogan-word");
+const sloganWords = ["понять", "увидеть", "почувствовать"];
+const sloganColors = ["#6493ff", "#ff8a26", "#a96bff"];
+const quietMotion = matchMedia("(prefers-reduced-motion: reduce)");
+let sloganIndex = 0;
+let sloganTimer;
+
+function scheduleSlogan() {
+  clearInterval(sloganTimer);
+  if (quietMotion.matches || document.hidden) return;
+  sloganTimer = setInterval(() => {
+    sloganIndex = (sloganIndex + 1) % sloganWords.length;
+    slogan.textContent = sloganWords[sloganIndex];
+    slogan.parentElement.style.setProperty("--word-accent", sloganColors[sloganIndex]);
+    slogan.animate([{ opacity: 0, transform: "translateY(.16em)" }, { opacity: 1, transform: "none" }], {
+      duration: 280, easing: "ease-out",
+    });
+  }, 3400);
 }
+
+quietMotion.addEventListener("change", scheduleSlogan);
+document.addEventListener("visibilitychange", scheduleSlogan);
+scheduleSlogan();
 
 const normalize = (value) => value.toLowerCase().replaceAll("ё", "е").trim();
 const rows = topics.map((topic, index) => {
