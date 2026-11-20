@@ -11,18 +11,21 @@
   <link rel="apple-touch-icon" sizes="180x180" href="dist/assets/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="dist/styles.css">
+  <script src="dist/topics.js" defer></script>
   <script src="dist/app.js" defer></script>
+  <script src="dist/site-menu.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
   <header class="top shell">
     <a class="brand" href="./" aria-label="Атлас физики, главная"><img class="mark" src="dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
-    <nav aria-label="Разделы сайта">
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
       <a href="theory/">Теория</a>
       <a href="experiments/">Опыты</a>
       <a href="labs/">Лабораторные</a>
     </nav>
-    <a href="#atlas" class="pill header-link">К темам</a>
+    <a class="pill header-link" href="https://rusalingvo.ru/">Русский язык</a>
   </header>
   <main id="main">
     <section class="hero shell" aria-labelledby="hero-title">

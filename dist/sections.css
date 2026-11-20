@@ -105,6 +105,19 @@
 .lesson .pill { margin-top: 18px; }
 .theory-note { max-width: 850px; margin-top: 0; }
 .theory-note h2 { margin: 30px 0 10px; font-size: clamp(1.4rem, 3vw, 2.1rem); }
+.theory-catalog h1 { margin-top: 12px; font-weight: 530; font-size: clamp(2.3rem, 4.55vw, 4.25rem); line-height: 1.04; letter-spacing: -.055em; }
+.theory-catalog summary { cursor: pointer; list-style: none; }
+.theory-catalog summary::-webkit-details-marker { display: none; }
+.theory-catalog summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.theory-catalog details[open] .chevron::before { transform: translateY(-2px) rotate(135deg); }
+.theory-catalog .theory-note, .theory-empty { margin: 0; padding: 0 14px 28px clamp(31px, 4.3vw, 60px); }
+.theory-catalog .theory-note h2 { margin: 0 0 16px; }
+.theory-catalog .theory-note h3 { margin: 24px 0 8px; }
+.theory-catalog .lesson > p, .theory-empty, .theory-catalog .equation-grid span { color: var(--light-muted); }
+.theory-catalog .equation-grid div { background: #f5f5f5; border-color: var(--edge); }
+.theory-catalog .equation-grid strong { color: #2347a0; }
+.theory-catalog .primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.theory-catalog .primary:hover { background: #252525; border-color: #252525; color: var(--white); }
 .equation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 25px; }
 .equation-grid div { display: grid; align-content: start; gap: 8px; padding: clamp(13px, 3vw, 25px); border-radius: 13px; border: 1px solid var(--line); background: var(--panel); }
 .equation-grid span { color: var(--muted); font-size: .9rem; }

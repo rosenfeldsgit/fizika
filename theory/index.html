@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Краткий конспект по самоиндукции и переходным процессам в RL-цепи.">
+  <meta name="description" content="Разделы физики для подготовки к ЕГЭ и конспект по самоиндукции в RL-цепи.">
   <title>Теория · Атлас физики</title>
   <link rel="icon" type="image/png" sizes="32x32" href="../dist/assets/icons/favicon-32.png">
   <link rel="icon" type="image/svg+xml" sizes="any" href="../dist/assets/icons/logo.svg">
@@ -12,36 +12,51 @@
   <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../dist/styles.css">
   <link rel="stylesheet" href="../dist/sections.css">
+  <script src="../dist/site-menu.js" defer></script>
+  <script src="../dist/topics.js" defer></script>
+  <script src="../dist/theory.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
   <header class="top shell">
     <a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
-    <nav aria-label="Разделы сайта">
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
       <a href="../theory/" aria-current="page">Теория</a>
       <a href="../experiments/">Опыты</a>
       <a href="../labs/">Лабораторные</a>
     </nav>
-    <a href="../#atlas" class="pill header-link">К темам</a>
+    <a class="pill header-link" href="https://rusalingvo.ru/">Русский язык</a>
   </header>
-  <main id="main" class="shell section-page">
-    <header class="section-heading">
-      <p class="eyebrow section-category">Теория · Электродинамика</p>
-      <h1>Самоиндукция</h1>
-      <p>Почему ток через катушку не может мгновенно измениться в RL-цепи.</p>
-    </header>
-    <article class="lesson theory-note" id="rl-circuit" aria-label="Самоиндукция в RL-цепи">
-      <div class="equation-grid">
-        <div><span>ЭДС самоиндукции</span><strong>ℰ<sub>си</sub> = −L · dI/dt</strong></div>
-        <div><span>Постоянная времени</span><strong>τ = L/R</strong></div>
+  <main id="main" class="catalog theory-catalog">
+    <div class="shell">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">Теория</p>
+          <h1>Разделы физики</h1>
+        </div>
+        <label class="search">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="sr-only">Поиск по темам</span>
+          <input id="topic-search" type="search" placeholder="Поиск по темам" autocomplete="off">
+        </label>
       </div>
-      <p>При изменении тока меняется магнитный поток через витки катушки. Возникающая ЭДС направлена так, чтобы препятствовать изменению тока. Здесь <var>L</var> — индуктивность катушки, а <var>R</var> — полное сопротивление контура.</p>
-      <h2>Замыкание</h2>
-      <p>Если начальный ток нулевой, <strong>I(t) = (U/R) · (1 − e<sup>−t/τ</sup>)</strong>. Через время <var>τ</var> ток достигает примерно 63% от установившегося значения <var>U/R</var>.</p>
-      <h2>Размыкание цепи источника</h2>
-      <p>Если после отключения источника остаётся замкнутый контур с резистором, <strong>I(t) = I<sub>0</sub> · e<sup>−t/τ</sup></strong>. Начальный ток <var>I<sub>0</sub></var> равен току в момент переключения. Через время <var>τ</var> остаётся примерно 37% начального тока.</p>
-      <a class="pill primary" href="../experiments/">Проверить на опыте</a>
-    </article>
+      <ul class="topic-list" id="topic-list"></ul>
+      <p class="empty" id="no-results" hidden role="status">Темы не найдены.</p>
+      <article class="lesson theory-note" id="rl-circuit" aria-label="Самоиндукция в RL-цепи">
+        <h2>Самоиндукция</h2>
+        <div class="equation-grid">
+          <div><span>ЭДС самоиндукции</span><strong>ℰ<sub>си</sub> = −L · dI/dt</strong></div>
+          <div><span>Постоянная времени</span><strong>τ = L/R</strong></div>
+        </div>
+        <p>При изменении тока меняется магнитный поток через витки катушки. Возникающая ЭДС направлена так, чтобы препятствовать изменению тока. Здесь <var>L</var> — индуктивность катушки, а <var>R</var> — полное сопротивление контура.</p>
+        <h3>Замыкание</h3>
+        <p>Если начальный ток нулевой, <strong>I(t) = (U/R) · (1 − e<sup>−t/τ</sup>)</strong>. Через время <var>τ</var> ток достигает примерно 63% от установившегося значения <var>U/R</var>.</p>
+        <h3>Размыкание цепи источника</h3>
+        <p>Если после отключения источника остаётся замкнутый контур с резистором, <strong>I(t) = I<sub>0</sub> · e<sup>−t/τ</sup></strong>. Начальный ток <var>I<sub>0</sub></var> равен току в момент переключения. Через время <var>τ</var> остаётся примерно 37% начального тока.</p>
+        <a class="pill primary" href="../experiments/">Проверить на опыте</a>
+      </article>
+    </div>
   </main>
   <footer class="shell foot"><a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
 </body>

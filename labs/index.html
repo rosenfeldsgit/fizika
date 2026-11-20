@@ -13,17 +13,19 @@
   <link rel="stylesheet" href="../dist/styles.css">
   <link rel="stylesheet" href="../dist/sections.css">
   <script src="../dist/pendulum.js" defer></script>
+  <script src="../dist/site-menu.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
   <header class="top shell">
     <a class="brand" href="../"><img class="mark" src="../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
-    <nav aria-label="Разделы сайта">
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
       <a href="../theory/">Теория</a>
       <a href="../experiments/">Опыты</a>
       <a href="../labs/" aria-current="page">Лабораторные</a>
     </nav>
-    <a href="../#atlas" class="pill header-link">К темам</a>
+    <a class="pill header-link" href="https://rusalingvo.ru/">Русский язык</a>
   </header>
   <main id="main" class="shell section-page">
     <header class="section-heading">
