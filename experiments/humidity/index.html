@@ -12,11 +12,11 @@
   <link rel="manifest" href="../../manifest.webmanifest">
   <link rel="stylesheet" href="../../dist/styles.css?v=compact-1">
   <link rel="stylesheet" href="../../dist/sections.css?v=compact-1">
-  <script src="../../dist/humidity.js" defer></script>
+  <script src="../../dist/humidity.js?v=atlas-1" defer></script>
   <script src="../../dist/site-menu.js?v=math-1" defer></script>
   <script src="../../dist/motion.js?v=math-1" defer></script>
   <link rel="stylesheet" href="../../dist/experiment-catalog.css?v=compact-1">
-  <link rel="stylesheet" href="../../dist/humidity.css?v=compact-1">
+  <link rel="stylesheet" href="../../dist/humidity.css?v=atlas-1">
 </head>
 <body>
   <a class="skip" href="#main">К основному содержанию</a>
@@ -38,142 +38,131 @@
       <p>Измени температуру, объём сосуда или массу воды и проследи, как меняется относительная влажность.</p>
     </header>
     <div class="humidity-lab">
-      <section class="lab" aria-label="Виртуальный эксперимент">
-        <div class="experiments" aria-label="Готовые опыты">
-          <h2>Готовые опыты</h2>
-          <button disabled data-case="balance" aria-pressed="true">Равновесие</button>
-          <button disabled data-case="last" aria-pressed="false">Последняя капля</button>
-          <button disabled data-case="cool" aria-pressed="false">Охлаждение</button>
-          <button disabled data-case="edge" aria-pressed="false">100% без капель</button>
+      <div class="humidity-presets" aria-label="Готовые опыты">
+        <h2 class="panel-label">Готовые сценарии</h2>
+        <button class="pill" type="button" disabled data-case="balance" aria-pressed="true">Равновесие</button>
+        <button class="pill" type="button" disabled data-case="last" aria-pressed="false">Последняя капля</button>
+        <button class="pill" type="button" disabled data-case="cool" aria-pressed="false">Охлаждение</button>
+        <button class="pill" type="button" disabled data-case="edge" aria-pressed="false">100% без капель</button>
+      </div>
+      <p class="preview-note">Показано равновесие при 20 °C. Для анимации и ползунков включи JavaScript в браузере.</p>
+      <section class="simulator lab" aria-label="Виртуальный эксперимент">
+        <div class="sim-workspace">
+          <section class="sim-figure vessel" aria-labelledby="vesselTitle">
+            <div class="vessel-heading"><h2 class="panel-label" id="vesselTitle">Сосуд с поршнем</h2><span class="volume">V = <output id="volumeReadout">1</output> м³</span></div>
+            <div class="plot-frame vessel-plot">
+              <svg viewBox="0 0 500 236" role="img" aria-labelledby="still-vessel-title">
+                <title id="still-vessel-title">Закрытый сосуд при 20 °C. На дне жидкая вода, над ней насыщенный пар.</title>
+                <defs>
+                  <pattern id="still-grid" width="24" height="23" patternUnits="userSpaceOnUse">
+                    <path d="M0 23V0H24" fill="none" stroke="#263445"/>
+                  </pattern>
+                </defs>
+                <rect x="52" y="29" width="396" height="181" fill="#101722"/>
+                <rect x="52" y="29" width="396" height="181" fill="url(#still-grid)"/>
+                <rect x="52" y="180.6" width="396" height="29.4" fill="#243e69"/>
+                <path d="M52 180.6H448" stroke="#83a7ff"/>
+                <rect x="52" y="24" width="396" height="10" rx="2" fill="#c8d1de"/>
+                <rect x="244" y="9" width="12" height="17" fill="#c8d1de"/>
+                <text x="440" y="19" text-anchor="end" fill="#b5b5b5" font-family="system-ui,sans-serif" font-size="11">поршень</text>
+                <g fill="#83a7ff">
+                <circle cx="117.5" cy="79.0" r="1.90"/>
+                <circle cx="345.0" cy="135.2" r="2.21"/>
+                <circle cx="204.4" cy="55.8" r="2.52"/>
+                <circle cx="431.8" cy="111.9" r="1.90"/>
+                <circle cx="291.3" cy="168.1" r="2.21"/>
+                <circle cx="150.7" cy="88.7" r="2.52"/>
+                <circle cx="378.1" cy="144.8" r="1.90"/>
+                <circle cx="237.6" cy="65.4" r="2.21"/>
+                <circle cx="97.0" cy="121.6" r="2.52"/>
+                <circle cx="324.4" cy="42.1" r="1.90"/>
+                <circle cx="183.9" cy="98.3" r="2.21"/>
+                <circle cx="411.3" cy="154.5" r="2.52"/>
+                <circle cx="270.8" cy="75.0" r="1.90"/>
+                <circle cx="130.2" cy="131.2" r="2.21"/>
+                <circle cx="357.6" cy="51.8" r="2.52"/>
+                <circle cx="217.1" cy="107.9" r="1.90"/>
+                <circle cx="76.5" cy="164.1" r="2.21"/>
+                <circle cx="303.9" cy="84.7" r="2.52"/>
+                <circle cx="163.4" cy="140.8" r="1.90"/>
+                <circle cx="390.8" cy="61.4" r="2.21"/>
+                <circle cx="250.3" cy="117.6" r="2.52"/>
+                <circle cx="109.7" cy="38.2" r="1.90"/>
+                </g>
+                <path d="M206 165V139m-5 6 5-6 5 6" fill="none" stroke="#83a7ff" stroke-width="2"/>
+                <path d="M294 139v26m-5-6 5 6 5-6" fill="none" stroke="#ff9b48" stroke-width="2"/>
+                <rect x="52" y="29" width="396" height="181" fill="none" stroke="#c8d1de" stroke-width="2"/>
+                <path d="M46 29H454" stroke="#c8d1de" stroke-width="5"/>
+              </svg>
+              <canvas id="vessel" role="img" aria-label="Условная схема закрытого сосуда, молекул пара и жидкой воды"></canvas>
+            </div>
+            <div class="legend"><span><i class="dot"></i>Молекулы водяного пара</span><span><i class="dot water"></i>Жидкая вода</span></div>
+            <div class="flows" aria-hidden="true">
+              <div class="flow"><b>↑</b> Испарение <div class="track"><i class="bar" id="evapBar" style="width:100%"></i></div></div>
+              <div class="flow"><b>↓</b> Конденсация <div class="track"><i class="bar" id="condBar" style="width:100%"></i></div></div>
+            </div>
+            <p id="exchange">Скорости равны. Молекулы продолжают переходить между паром и жидкостью.</p>
+          </section>
+          <section class="sim-figure sim-chart graph" aria-labelledby="graphTitle">
+            <div>
+              <div class="graph-heading"><h2 class="panel-label" id="graphTitle">Граница насыщения</h2><span class="chart-label">ПЛОТНОСТЬ ПАРА, г/м³</span></div>
+              <div class="plot-frame chart-plot">
+                <svg viewBox="0 0 365 216" role="img" aria-labelledby="still-chart-title">
+                  <title id="still-chart-title">График плотности насыщенного пара. Точка при 20 °C показывает 17,3 г/м³.</title>
+                <path d="M36 188.00H334" stroke="#36393f"/>
+                <path d="M36 150.00H334" stroke="#36393f"/>
+                <path d="M36 112.00H334" stroke="#36393f"/>
+                <path d="M36 74.00H334" stroke="#36393f"/>
+                <path d="M36 36.00H334" stroke="#36393f"/>
+                  <path d="M36.60 178.72 L47.92 177.44 L59.84 175.92 L71.76 174.21 L83.68 172.29 L95.60 170.14 L107.52 167.75 L119.44 165.08 L131.36 162.11 L143.28 158.81 L155.20 155.15 L167.12 151.10 L179.04 146.63 L190.96 141.71 L202.88 136.29 L214.80 130.33 L226.72 123.79 L238.64 116.63 L250.56 108.79 L262.48 100.24 L274.40 90.91 L286.32 80.75 L298.24 69.71 L310.16 57.72 L322.08 44.71 L334.00 30.63 V188 H36 Z" fill="#1c2b47" fill-opacity=".66"/>
+                  <path d="M36.60 178.72 L47.92 177.44 L59.84 175.92 L71.76 174.21 L83.68 172.29 L95.60 170.14 L107.52 167.75 L119.44 165.08 L131.36 162.11 L143.28 158.81 L155.20 155.15 L167.12 151.10 L179.04 146.63 L190.96 141.71 L202.88 136.29 L214.80 130.33 L226.72 123.79 L238.64 116.63 L250.56 108.79 L262.48 100.24 L274.40 90.91 L286.32 80.75 L298.24 69.71 L310.16 57.72 L322.08 44.71 L334.00 30.63" fill="none" stroke="#c8d1de" stroke-width="2"/>
+                  <path d="M36 155.15H155.20V188" fill="none" stroke="#83a7ff" stroke-dasharray="4 4"/>
+                  <circle cx="155.20" cy="155.15" r="6" fill="#83a7ff" stroke="white" stroke-width="2"/>
+                  <g class="humidity-axis" font-size="11" fill="#b5b5b5">
+                  <text x="29" y="188.00" text-anchor="end" dominant-baseline="middle">0</text>
+                  <text x="29" y="150.00" text-anchor="end" dominant-baseline="middle">20</text>
+                  <text x="29" y="112.00" text-anchor="end" dominant-baseline="middle">40</text>
+                  <text x="29" y="74.00" text-anchor="end" dominant-baseline="middle">60</text>
+                  <text x="29" y="36.00" text-anchor="end" dominant-baseline="middle">80</text>
+                  <text x="36.00" y="205" text-anchor="middle">0</text>
+                  <text x="95.60" y="205" text-anchor="middle">10</text>
+                  <text x="155.20" y="205" text-anchor="middle">20</text>
+                  <text x="214.80" y="205" text-anchor="middle">30</text>
+                  <text x="274.40" y="205" text-anchor="middle">40</text>
+                  <text x="334.00" y="205" text-anchor="middle">50</text>
+                    <text x="349" y="205">°C</text>
+                  </g>
+                </svg>
+                <canvas id="chart" role="img" aria-label="График зависимости плотности насыщенного пара от температуры"></canvas>
+              </div>
+              <div class="legend"><span><i class="dot"></i>Текущее состояние</span><span>Плотность насыщенного пара</span></div>
+            </div>
+            <div class="graph-aside">
+              <h3>Точка росы в сосуде <output id="dew">· 20 °C</output></h3>
+              <p id="dewText">При этой температуре текущая масса пара даёт 100% влажности.</p>
+              <button class="pill" type="button" disabled id="dewAction">Установить температуру точки росы</button>
+            </div>
+          </section>
         </div>
-        <p class="preview-note">Показано равновесие при 20 °C. Для анимации и ползунков включи JavaScript в браузере.</p>
-        <section class="panel vessel" aria-labelledby="vesselTitle">
-          <div class="vessel-heading"><h2 id="vesselTitle">Сосуд с поршнем</h2><span class="volume">V = <output id="volumeReadout">1</output> м³</span></div>
-          <div class="plot-frame vessel-plot">
-            <svg viewBox="0 0 500 236" role="img" aria-labelledby="still-vessel-title">
-              <title id="still-vessel-title">Закрытый сосуд при 20 °C. На дне жидкая вода, над ней насыщенный пар.</title>
-              <defs>
-                <pattern id="still-grid" width="24" height="23" patternUnits="userSpaceOnUse">
-                  <path d="M0 23V0H24" fill="none" stroke="#e5ebe2"/>
-                </pattern>
-              </defs>
-              <rect x="52" y="29" width="396" height="181" fill="#fafdf7"/>
-              <rect x="52" y="29" width="396" height="181" fill="url(#still-grid)"/>
-              <rect x="52" y="180.6" width="396" height="29.4" fill="#b9ccff"/>
-              <path d="M52 180.6H448" stroke="#6e91ec"/>
-              <rect x="52" y="24" width="396" height="10" rx="2" fill="#19231f"/>
-              <rect x="244" y="9" width="12" height="17" fill="#19231f"/>
-              <text x="440" y="19" text-anchor="end" fill="#53615a" font-family="system-ui,sans-serif" font-size="11">поршень</text>
-              <g fill="#2349d8">
-              <circle cx="117.5" cy="79.0" r="1.90"/>
-              <circle cx="345.0" cy="135.2" r="2.21"/>
-              <circle cx="204.4" cy="55.8" r="2.52"/>
-              <circle cx="431.8" cy="111.9" r="1.90"/>
-              <circle cx="291.3" cy="168.1" r="2.21"/>
-              <circle cx="150.7" cy="88.7" r="2.52"/>
-              <circle cx="378.1" cy="144.8" r="1.90"/>
-              <circle cx="237.6" cy="65.4" r="2.21"/>
-              <circle cx="97.0" cy="121.6" r="2.52"/>
-              <circle cx="324.4" cy="42.1" r="1.90"/>
-              <circle cx="183.9" cy="98.3" r="2.21"/>
-              <circle cx="411.3" cy="154.5" r="2.52"/>
-              <circle cx="270.8" cy="75.0" r="1.90"/>
-              <circle cx="130.2" cy="131.2" r="2.21"/>
-              <circle cx="357.6" cy="51.8" r="2.52"/>
-              <circle cx="217.1" cy="107.9" r="1.90"/>
-              <circle cx="76.5" cy="164.1" r="2.21"/>
-              <circle cx="303.9" cy="84.7" r="2.52"/>
-              <circle cx="163.4" cy="140.8" r="1.90"/>
-              <circle cx="390.8" cy="61.4" r="2.21"/>
-              <circle cx="250.3" cy="117.6" r="2.52"/>
-              <circle cx="109.7" cy="38.2" r="1.90"/>
-              </g>
-              <path d="M206 165V139m-5 6 5-6 5 6" fill="none" stroke="#2349d8" stroke-width="2"/>
-              <path d="M294 139v26m-5-6 5 6 5-6" fill="none" stroke="#14624b" stroke-width="2"/>
-              <rect x="52" y="29" width="396" height="181" fill="none" stroke="#19231f" stroke-width="2"/>
-              <path d="M46 29H454" stroke="#19231f" stroke-width="5"/>
-            </svg>
-            <canvas id="vessel" role="img" aria-label="Условная схема закрытого сосуда, молекул пара и жидкой воды"></canvas>
-          </div>
-          <div class="legend"><span><i class="dot"></i>Молекулы водяного пара</span><span><i class="dot water"></i>Жидкая вода</span></div>
-          <div class="flows" aria-hidden="true">
-            <div class="flow"><b>↑</b> Испарение <div class="track"><i class="bar" id="evapBar" style="width:100%"></i></div></div>
-            <div class="flow"><b>↓</b> Конденсация <div class="track"><i class="bar" id="condBar" style="width:100%"></i></div></div>
-          </div>
-          <p id="exchange">Скорости равны. Молекулы продолжают переходить между паром и жидкостью.</p>
-        </section>
-        <section class="panel controls" aria-label="Настройки и измерения">
-          <div class="readout">
-            <span class="tag">ОТНОСИТЕЛЬНАЯ ВЛАЖНОСТЬ</span>
-            <div class="readout-top"><output id="humidity">100%</output><div id="phase">Насыщенный пар</div></div>
+        <aside class="sim-controls" aria-label="Настройки и измерения">
+          <div class="controls-heading"><h2 class="panel-label">Условия опыта</h2><button class="pill" disabled id="pause" type="button">Пауза</button></div>
+          <div class="sim-slider"><label for="temperature">Температура</label><output id="temperatureValue" for="temperature">20 °C</output><input id="temperature" disabled type="range" min="0.1" max="50" step="0.1" value="20"></div>
+          <div class="sim-slider"><label for="total">Общая масса воды</label><output id="totalValue" for="total">45 г</output><input id="total" disabled type="range" min="0" max="90" step="0.1" value="45" aria-describedby="massHelp"></div>
+          <div class="sim-slider"><label for="volume">Объём сосуда</label><output id="volumeValue" for="volume">1 м³</output><input id="volume" disabled type="range" min="0.5" max="2" step="0.01" value="1"></div>
+          <p class="sim-hint" id="massHelp">Общая масса включает пар и жидкую воду.</p>
+          <div class="humidity-reading">
+            <p class="panel-label">Относительная влажность</p>
+            <div class="readout-top"><output id="humidity">100%</output><span id="phase">Насыщенный пар</span></div>
             <div class="readout-track track" aria-hidden="true"><i class="bar" id="humidityBar" style="width:100%"></i></div>
             <p id="explain">Воды хватило для насыщения, часть осталась на дне.</p>
           </div>
-          <div class="control-body">
-            <div class="controls-heading"><h2>Условия опыта</h2><button disabled id="pause" type="button">Пауза</button></div>
-            <label class="slider">
-              <span class="slide-label"><span>Температура</span><output id="temperatureValue">20 °C</output></span>
-              <input disabled id="temperature" type="range" min="0.1" max="50" step="0.1" value="20">
-              <small><span>0,1 °C</span><span>50 °C</span></small>
-            </label>
-            <label class="slider">
-              <span class="slide-label"><span>Общая масса воды</span><output id="totalValue">45 г</output></span>
-              <input disabled id="total" type="range" min="0" max="90" step="0.1" value="45" aria-describedby="massHelp">
-              <small id="massHelp"><span>Пар + жидкая вода</span><span>0–90 г</span></small>
-            </label>
-            <label class="slider">
-              <span class="slide-label"><span>Объём сосуда</span><output id="volumeValue">1 м³</output></span>
-              <input disabled id="volume" type="range" min="0.5" max="2" step="0.01" value="1">
-              <small><span>0,50 м³</span><span>2,00 м³</span></small>
-            </label>
-            <dl class="values">
-              <div><dt>Пар в сосуде</dt><dd id="vaporValue">17,3 г</dd></div>
-              <div><dt>Для насыщения нужно</dt><dd id="limitValue">17,3 г</dd></div>
-              <div><dt>Жидкая вода</dt><dd id="liquidValue">27,7 г</dd></div>
-              <div><dt>Абсолютная влажность</dt><dd id="densityValue">17,3 г/м³</dd></div>
-            </dl>
-          </div>
-        </section>
-        <section class="panel graph" aria-labelledby="graphTitle">
-          <div>
-            <div class="graph-heading"><h2 id="graphTitle">Граница насыщения</h2><span class="chart-label">ПЛОТНОСТЬ ПАРА, г/м³</span></div>
-            <div class="plot-frame chart-plot">
-              <svg viewBox="0 0 365 216" role="img" aria-labelledby="still-chart-title">
-                <title id="still-chart-title">График плотности насыщенного пара. Точка при 20 °C показывает 17,3 г/м³.</title>
-              <path d="M36 188.00H334" stroke="#d4dad1"/>
-              <path d="M36 150.00H334" stroke="#d4dad1"/>
-              <path d="M36 112.00H334" stroke="#d4dad1"/>
-              <path d="M36 74.00H334" stroke="#d4dad1"/>
-              <path d="M36 36.00H334" stroke="#d4dad1"/>
-                <path d="M36.60 178.72 L47.92 177.44 L59.84 175.92 L71.76 174.21 L83.68 172.29 L95.60 170.14 L107.52 167.75 L119.44 165.08 L131.36 162.11 L143.28 158.81 L155.20 155.15 L167.12 151.10 L179.04 146.63 L190.96 141.71 L202.88 136.29 L214.80 130.33 L226.72 123.79 L238.64 116.63 L250.56 108.79 L262.48 100.24 L274.40 90.91 L286.32 80.75 L298.24 69.71 L310.16 57.72 L322.08 44.71 L334.00 30.63 V188 H36 Z" fill="#e8eeff" fill-opacity=".66"/>
-                <path d="M36.60 178.72 L47.92 177.44 L59.84 175.92 L71.76 174.21 L83.68 172.29 L95.60 170.14 L107.52 167.75 L119.44 165.08 L131.36 162.11 L143.28 158.81 L155.20 155.15 L167.12 151.10 L179.04 146.63 L190.96 141.71 L202.88 136.29 L214.80 130.33 L226.72 123.79 L238.64 116.63 L250.56 108.79 L262.48 100.24 L274.40 90.91 L286.32 80.75 L298.24 69.71 L310.16 57.72 L322.08 44.71 L334.00 30.63" fill="none" stroke="#19231f" stroke-width="2"/>
-                <path d="M36 155.15H155.20V188" fill="none" stroke="#2349d8" stroke-dasharray="4 4"/>
-                <circle cx="155.20" cy="155.15" r="6" fill="#2349d8" stroke="white" stroke-width="2"/>
-                <g font-family="monospace" font-size="11" fill="#53615a">
-                <text x="29" y="188.00" text-anchor="end" dominant-baseline="middle">0</text>
-                <text x="29" y="150.00" text-anchor="end" dominant-baseline="middle">20</text>
-                <text x="29" y="112.00" text-anchor="end" dominant-baseline="middle">40</text>
-                <text x="29" y="74.00" text-anchor="end" dominant-baseline="middle">60</text>
-                <text x="29" y="36.00" text-anchor="end" dominant-baseline="middle">80</text>
-                <text x="36.00" y="205" text-anchor="middle">0</text>
-                <text x="95.60" y="205" text-anchor="middle">10</text>
-                <text x="155.20" y="205" text-anchor="middle">20</text>
-                <text x="214.80" y="205" text-anchor="middle">30</text>
-                <text x="274.40" y="205" text-anchor="middle">40</text>
-                <text x="334.00" y="205" text-anchor="middle">50</text>
-                  <text x="349" y="205">°C</text>
-                </g>
-              </svg>
-              <canvas id="chart" role="img" aria-label="График зависимости плотности насыщенного пара от температуры"></canvas>
-            </div>
-            <div class="legend"><span><i class="dot"></i>Текущее состояние</span><span>━ Плотность насыщенного пара</span></div>
-          </div>
-          <div class="graph-aside">
-            <h3>Точка росы в сосуде <output id="dew">· 20 °C</output></h3>
-            <p id="dewText">При этой температуре текущая масса пара даёт 100% влажности.</p>
-            <button disabled id="dewAction">Установить температуру точки росы</button>
-          </div>
-        </section>
+          <dl class="sim-readouts">
+            <div><dt>Пар в сосуде</dt><dd id="vaporValue">17,3 г</dd></div>
+            <div><dt>Для насыщения нужно</dt><dd id="limitValue">17,3 г</dd></div>
+            <div><dt>Жидкая вода</dt><dd id="liquidValue">27,7 г</dd></div>
+            <div><dt>Абсолютная влажность</dt><dd id="densityValue">17,3 г/м³</dd></div>
+          </dl>
+        </aside>
       </section>
       <section class="notes" aria-label="Объяснение">
         <article><h3>Абсолютная влажность</h3><p>Масса водяного пара в кубометре воздуха. Единица измерения — г/м³.</p></article>

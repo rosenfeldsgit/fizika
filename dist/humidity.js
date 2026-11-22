@@ -156,7 +156,7 @@ const vessel = $('vessel');
 const chart = $('chart');
 const vesselContext = vessel.getContext('2d');
 const chartContext = chart.getContext('2d');
-const palette = {blue:'#2349d8',green:'#14624b',ink:'#19231f',muted:'#53615a',line:'#d4dad1'};
+const palette = { blue: '#83a7ff', orange: '#ff9b48', outline: '#a6b8ca', muted: '#b5b5b5', grid: '#36393f', vapor: '#101722', vesselGrid: '#263445', water: '#243e69', piston: '#3a4a61', graphArea: '#1c2b47' };
 function surface(canvas,context) {
   const {clientWidth:w,clientHeight:h} = canvas;
   const dpr = Math.min(devicePixelRatio || 1,2);
@@ -182,7 +182,7 @@ function drawChart() {
   c.textAlign = 'right';
   c.textBaseline = 'middle';
   for (let density = 0; density <= ceiling; density += ceiling > 120 ? 40 : 20) {
-    c.strokeStyle = palette.line;
+    c.strokeStyle = palette.grid;
     c.beginPath(); c.moveTo(left,y(density)); c.lineTo(right,y(density)); c.stroke();
     c.fillStyle = palette.muted; c.fillText(density,left-7,y(density));
   }
@@ -197,9 +197,9 @@ function drawChart() {
     const t = MIN_TEMP + (MAX_TEMP-MIN_TEMP)*i/100;
     c.lineTo(x(t),y(saturationDensity(t)));
   }
-  c.strokeStyle = palette.ink; c.lineWidth = 2; c.stroke();
+  c.strokeStyle = palette.orange; c.lineWidth = 2; c.stroke();
   c.lineTo(right,bottom); c.lineTo(left,bottom); c.closePath();
-  c.fillStyle = '#e8eeff'; c.globalAlpha = .66; c.fill(); c.globalAlpha = 1;
+  c.fillStyle = palette.graphArea; c.globalAlpha = .66; c.fill(); c.globalAlpha = 1;
   const px = x(state.t), py = y(state.vapor/state.volume);
   c.beginPath(); c.moveTo(px,bottom); c.lineTo(px,py); c.lineTo(left,py);
   c.setLineDash([4,4]); c.strokeStyle = palette.blue; c.lineWidth = 1; c.stroke(); c.setLineDash([]);
@@ -224,23 +224,23 @@ function drawVessel() {
   const depth = liquid > EPSILON ? 5+Math.sqrt(liquid/90)*44 : 0;
   const pistonTop = top + (1 - (state.volume-MIN_VOLUME)/(MAX_VOLUME-MIN_VOLUME)) * (bottom-top-70);
   const waterline = Math.max(pistonTop+18,bottom-depth);
-  c.fillStyle = '#fafdf7'; c.fillRect(left,top,width,bottom-top);
-  c.strokeStyle = '#e5ebe2'; c.lineWidth = 1;
+  c.fillStyle = palette.vapor; c.fillRect(left,top,width,bottom-top);
+  c.strokeStyle = palette.vesselGrid; c.lineWidth = 1;
   for (let x=left+24;x<right;x+=24) {
     c.beginPath(); c.moveTo(x,top); c.lineTo(x,bottom); c.stroke();
   }
   for (let y=top+23;y<bottom;y+=23) {
     c.beginPath(); c.moveTo(left,y); c.lineTo(right,y); c.stroke();
   }
-  c.fillStyle = '#cbd2c8';
+  c.fillStyle = palette.piston;
   c.fillRect(left,pistonTop,width,8);
-  c.strokeStyle = palette.ink; c.lineWidth = 2;
+  c.strokeStyle = palette.outline; c.lineWidth = 2;
   c.strokeRect(left,pistonTop,width,8);
-  c.fillStyle = palette.ink;
+  c.fillStyle = palette.outline;
   c.fillRect((left+right)/2-4,top-15,8,15);
   if (depth) {
-    c.fillStyle = '#b9ccff'; c.fillRect(left,waterline,width,bottom-waterline);
-    c.strokeStyle = '#6e91ec'; c.beginPath(); c.moveTo(left,waterline); c.lineTo(right,waterline); c.stroke();
+    c.fillStyle = palette.water; c.fillRect(left,waterline,width,bottom-waterline);
+    c.strokeStyle = palette.blue; c.beginPath(); c.moveTo(left,waterline); c.lineTo(right,waterline); c.stroke();
   }
   const count = state.vapor > 0 ? Math.max(1,Math.round(state.vapor*1.25)) : 0;
   c.fillStyle = palette.blue;
@@ -251,7 +251,7 @@ function drawVessel() {
     c.beginPath(); c.arc(x,y,1.9+i%3*.31,0,Math.PI*2); c.fill();
   }
   if (depth) {
-    for (const [direction,color,fraction] of [[-1,palette.blue,.39],[1,palette.green,.61]]) {
+    for (const [direction,color,fraction] of [[-1,palette.blue,.39],[1,palette.orange,.61]]) {
       const x = left+width*fraction;
       const y = waterline-9;
       const offset = reducedMotion.matches ? 0 : Math.sin(motionTime*3+fraction)*3;
@@ -262,7 +262,7 @@ function drawVessel() {
       c.strokeStyle = color; c.lineWidth = 2; c.stroke();
     }
   }
-  c.strokeStyle = palette.ink; c.lineWidth = 2;
+  c.strokeStyle = palette.outline; c.lineWidth = 2;
   c.strokeRect(left,top,width,bottom-top);
   c.lineWidth = 5;
   c.beginPath(); c.moveTo(left-6,top); c.lineTo(right+6,top); c.stroke();

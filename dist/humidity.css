@@ -1,80 +1,107 @@
-.humidity-lab{--paper:#f7f6ef;--white:#fffef9;--ink:#19231f;--muted:#53615a;--line:#c9d0c5;--blue:#2349d8;--light:#e8eeff;--green:#14624b;--orange:#ac4327}
-.humidity-lab{color:var(--ink);line-height:1.47;color-scheme:light}
-.humidity-lab h2{font-size:24px;line-height:1.13;letter-spacing:-.035em}
-.humidity-lab h3{font-size:17px;line-height:1.25}
-.humidity-lab .panel{background:var(--white);border:1px solid var(--line);min-width:0}
-.humidity-lab .lab{display:grid;grid-template-columns:1.16fr 1fr;gap:14px}
-.humidity-lab .experiments{grid-column:1/-1;display:flex;align-items:center;gap:10px;padding:12px 0;flex-wrap:wrap;border-top:1px solid var(--line)}
-.humidity-lab .experiments h2{font-size:14px;letter-spacing:0;margin-right:7px}
-.humidity-lab button{font:inherit;font-size:14px;font-weight:650;line-height:1.25;padding:9px 12px;min-height:42px;border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:4px;cursor:pointer;text-align:left}
-.humidity-lab button:hover{border-color:var(--blue);color:var(--blue)}
-.humidity-lab button[aria-pressed="true"]{border-color:var(--blue);background:var(--light);color:#1c3db9}
-.humidity-lab button:focus-visible,.humidity-lab input:focus-visible,.humidity-lab summary:focus-visible,.humidity-lab a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.humidity-lab .vessel{padding:19px 20px 17px;display:flex;flex-direction:column}
-.humidity-lab .vessel-heading,.humidity-lab .controls-heading,.humidity-lab .slide-label,.humidity-lab .graph-heading{display:flex;gap:12px;justify-content:space-between;align-items:center}
-.humidity-lab .volume,.humidity-lab .tag,.humidity-lab .chart-label{font:650 12px/1.3 var(--math-font);letter-spacing:.035em}
-.humidity-lab .volume{white-space:nowrap;color:var(--muted)}
-.humidity-lab .plot-frame{position:relative}
-.humidity-lab .vessel-plot{height:208px;margin-top:10px;background:#eef1eb}
-.humidity-lab .plot-frame svg,.humidity-lab .plot-frame canvas{display:block;width:100%;height:100%}
-.humidity-lab .plot-frame canvas{position:absolute;inset:0;visibility:hidden}
-.humidity-lab.simulation-ready .plot-frame canvas{visibility:visible}
-.humidity-lab.simulation-ready .plot-frame svg,.humidity-lab.simulation-ready .preview-note{display:none}
-.humidity-lab .preview-note{grid-column:1/-1;padding:9px 12px;background:var(--light);font-size:14px}
-.humidity-lab button:disabled,.humidity-lab input:disabled{cursor:default;opacity:.65}
-.humidity-lab .legend{display:flex;flex-wrap:wrap;gap:6px 17px;font-size:13px;margin-top:10px;color:var(--muted)}
-.humidity-lab .dot{width:9px;height:9px;display:inline-block;margin-right:5px;border-radius:50%;background:var(--blue)}
-.humidity-lab .dot.water{background:#8eabff;border:1px solid #5278dc;border-radius:1px}
-.humidity-lab .flows{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.humidity-lab .flow{font-size:13px;font-weight:650}
-.humidity-lab .flow b{font-family:var(--math-font);color:var(--blue);font-size:16px}
-.humidity-lab .flow:last-child b{color:var(--green)}
-.humidity-lab .track{overflow:hidden;background:#e7eae3;height:5px;margin-top:4px}
-.humidity-lab .bar{display:block;width:0;height:100%;background:var(--blue)}
-.humidity-lab .flow:last-child .bar{background:var(--green)}
-.humidity-lab #exchange{font-size:13px;color:var(--muted);margin-top:8px;min-height:2.9em}
-.humidity-lab .controls{display:flex;flex-direction:column}
-.humidity-lab .readout{padding:17px 20px 18px;background:var(--blue);color:white}
-.humidity-lab .readout-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-end;flex-wrap:wrap}
-.humidity-lab .tag{color:#f0f2ff}
-.humidity-lab #humidity{display:block;font-size:clamp(42px,5.5vw,58px);line-height:1;letter-spacing:-.065em;font-weight:780;font-variant-numeric:tabular-nums}
-.humidity-lab #phase{font-weight:730;font-size:16px;line-height:1.26;max-width:15ch;text-align:right;margin-bottom:5px}
-.humidity-lab .readout-track{margin:12px 0 8px;height:4px;background:#dbe4ff64}
-.humidity-lab #humidityBar{background:white}
-.humidity-lab #explain{font-size:14px;min-height:2.9em}
-.humidity-lab .control-body{padding:15px 20px 17px}
-.humidity-lab .controls-heading h2{font-size:21px}
-.humidity-lab .controls-heading button{min-height:36px}
-.humidity-lab .slider{display:block;margin-top:12px}
-.humidity-lab .slide-label{font-size:14px;font-weight:680}
-.humidity-lab .slider output{font:700 15px var(--math-font);white-space:nowrap}
-.humidity-lab input[type=range]{width:100%;margin:2px 0 0;height:28px;display:block;accent-color:var(--blue);cursor:pointer}
-.humidity-lab .slider small{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
-.humidity-lab .values{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 0}
-.humidity-lab .values div{border-top:1px solid var(--line);padding-top:6px}
-.humidity-lab .values dt{font-size:12px;color:var(--muted)}
-.humidity-lab .values dd{margin:0;font-size:17px;font-weight:720;font-variant-numeric:tabular-nums}
-.humidity-lab .graph{grid-column:1/-1;padding:18px 20px;display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:22px}
-.humidity-lab .graph-heading{align-items:baseline;flex-wrap:wrap}
-.humidity-lab .chart-label{color:var(--muted)}
-.humidity-lab .chart-plot{height:188px;margin-top:6px}
-.humidity-lab .graph-aside{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;border-left:1px solid var(--line);padding-left:19px}
-.humidity-lab .graph-aside p,.humidity-lab .notes p,.humidity-lab .humidity-sources{font-size:14px;color:var(--muted)}
-.humidity-lab #dew{font-weight:750;color:var(--ink)}
-.humidity-lab #dewAction:disabled{cursor:default;opacity:.55}
-.humidity-lab .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:21px 0}
-.humidity-lab .notes article{border-top:2px solid var(--ink);padding-top:10px}
-.humidity-lab .notes p{margin-top:5px}
-.humidity-lab details{border-top:1px solid var(--line);padding-top:10px}
-.humidity-lab summary{font-weight:690;cursor:pointer}
-.humidity-lab details p{max-width:85ch;margin:6px 0}
-.humidity-lab a{color:#1e3fc5;text-underline-offset:3px}
-@media(max-width:760px){.humidity-lab .lab,.humidity-lab .graph,.humidity-lab .notes{grid-template-columns:1fr}.humidity-lab .experiments{gap:6px}.humidity-lab .experiments h2{width:100%;margin-bottom:2px}.humidity-lab .vessel,.humidity-lab .control-body,.humidity-lab .readout,.humidity-lab .graph{padding-left:14px;padding-right:14px}.humidity-lab .graph{gap:10px}.humidity-lab .graph-aside{border-left:0;border-top:1px solid var(--line);padding:12px 0 0}.humidity-lab .notes{gap:12px}.humidity-lab .vessel-plot{height:212px}.humidity-lab #phase{font-size:14px}}
-.humidity-lab .panel { border-radius: 16px; overflow: hidden; }
-.humidity-lab .notes, .humidity-lab .humidity-sources { color: var(--white); }
-.humidity-lab .notes article { border-color: #515151; }
-.humidity-lab .notes p, .humidity-lab .humidity-sources p { color: #b5b5b5; }
-.humidity-lab .humidity-sources a { color: #a9bdff; }
-.humidity-lab .experiments { border-color: #515151; }
-.humidity-lab .experiments h2 { color: var(--white); }
-.humidity-lab button { border-radius: 8px; }
+.humidity-presets {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.humidity-presets .panel-label {
+  color: var(--muted);
+  margin: 0 8px 0 0;
+}
+.humidity-presets .pill { min-height: 42px; padding-inline: 15px; }
+.humidity-presets .pill[aria-pressed="true"] {
+  border-color: #5a75b0;
+  background: #18233b;
+  color: #c2d1ff;
+}
+.humidity-lab .preview-note {
+  padding: 12px 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.humidity-lab.simulation-ready .preview-note,
+.humidity-lab.simulation-ready .plot-frame svg { display: none; }
+.humidity-lab .vessel-heading,
+.humidity-lab .controls-heading,
+.humidity-lab .graph-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+.humidity-lab .simulator .panel-label { margin: 0; }
+.humidity-lab .volume, .humidity-lab .chart-label { color: var(--muted); font-size: .85rem; }
+.humidity-lab .volume { font-family: var(--math-font); }
+.humidity-lab .humidity-axis { font-family: var(--math-font); }
+.humidity-lab .plot-frame { position: relative; }
+.humidity-lab .vessel-plot { height: clamp(168px, 21vw, 208px); }
+.humidity-lab .chart-plot { height: 188px; }
+.humidity-lab .plot-frame svg, .humidity-lab .plot-frame canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.humidity-lab .plot-frame canvas { position: absolute; inset: 0; visibility: hidden; }
+.humidity-lab.simulation-ready .plot-frame canvas { visibility: visible; }
+
+.humidity-lab .legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 15px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.humidity-lab .dot, .humidity-lab .graph .legend span:last-child::before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.humidity-lab .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--section-blue); }
+.humidity-lab .dot.water { border-radius: 2px; border: 1px solid #83a7ff; background: #243e69; }
+.humidity-lab .graph .legend span:last-child::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--section-orange);
+}
+.humidity-lab .flows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.humidity-lab .flow, .humidity-lab #exchange, .humidity-lab #explain, .humidity-lab .graph-aside p {
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.45;
+}
+.humidity-lab .flow b { color: var(--section-blue); }
+.humidity-lab .flow:last-child b { color: var(--section-orange); }
+.humidity-lab .track { overflow: hidden; height: 4px; border-radius: 4px; background: var(--line); }
+.humidity-lab .flows .track { margin-top: 5px; }
+.humidity-lab .bar { display: block; height: 100%; background: var(--section-blue); }
+.humidity-lab .flow:last-child .bar { background: var(--section-orange); }
+.humidity-lab #exchange { margin-top: 9px; }
+.humidity-lab .controls-heading .pill { min-height: 38px; padding-inline: 13px; }
+.humidity-lab .humidity-reading, .humidity-lab .graph-aside { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 16px; }
+.humidity-lab .readout-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 14px; margin-top: 7px; }
+.humidity-lab #humidity { font-size: clamp(2rem, 4vw, 3rem); font-weight: 560; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.humidity-lab #phase { color: var(--section-blue); font-size: .9rem; }
+.humidity-lab .readout-track { margin: 9px 0; }
+.humidity-lab .graph-aside h3, .humidity-lab .notes h3 { margin: 0 0 8px; font-size: 1rem; }
+.humidity-lab #dew { color: var(--section-blue); }
+.humidity-lab #dewAction { margin-top: 12px; }
+.humidity-lab .notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-block: 32px 24px; }
+.humidity-lab .notes article { border-top: 1px solid var(--line); padding-top: 14px; }
+.humidity-lab .notes p, .humidity-lab .humidity-sources p { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.humidity-lab .humidity-sources { border-top: 1px solid var(--line); padding-top: 14px; }
+.humidity-lab .humidity-sources summary { cursor: pointer; }
+.humidity-lab .humidity-sources p { max-width: 77ch; margin-top: 10px; }
+.humidity-lab .humidity-sources a { color: #adc1ff; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .humidity-lab .notes { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 420px) {
+  .humidity-presets .panel-label { flex-basis: 100%; }
+  .humidity-presets .pill { min-height: 44px; }
+}
