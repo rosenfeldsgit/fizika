@@ -29,6 +29,8 @@ const intervalsOverlap = (a, b) => a[0] <= b[1] && b[0] <= a[1];
 const compatible = (yes) => yes ? "Интервалы пересекаются. Результаты согласуются в пределах погрешности." : "Интервалы не пересекаются.";
 const intervalText = ([a, b]) => "[" + number(a, 2) + "; " + number(b, 2) + "]";
 
+export { range, choices, result, invalid, mean, round, estimate, interval, intervalsOverlap };
+
 export const physics = {
   flight: (h, speed) => {
     const time = Math.sqrt(2 * h / g);

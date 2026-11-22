@@ -1,8 +1,11 @@
-import { labs, number } from "./lab-models.js";
+import { labs, number } from "./lab-models.js?v=grade11-1";
 import { diagram } from "./lab-diagrams.js";
+import { grade11 } from "./grade11-models.js";
+import { diagram11 } from "./grade11-diagrams.js";
 
 const main = document.querySelector("[data-lab]");
-const lab = labs.find(item => item.slug === main.dataset.lab);
+const senior = main.dataset.grade === "11";
+const lab = (senior ? grade11 : labs).find(item => item.slug === main.dataset.lab);
 const form = main.querySelector("#lab-settings");
 const start = main.querySelector("#lab-start");
 const record = main.querySelector("#lab-record");
@@ -71,7 +74,7 @@ for (const control of lab.controls) {
 }
 
 function draw(progress = 0) {
-  picture.innerHTML = diagram(lab.slug, settings, progress);
+  picture.innerHTML = senior ? diagram11(lab.slug, settings, progress, rows, pending) : diagram(lab.slug, settings, progress);
 }
 
 function showResult(measurement) {
@@ -158,6 +161,7 @@ record.addEventListener("click", () => {
   pending = undefined;
   record.disabled = true;
   status.textContent = "Замер № " + rows.length + " записан.";
+  if (senior && lab.slug === "magnetic-field-on-current") draw(1);
   updateJournal();
 });
 

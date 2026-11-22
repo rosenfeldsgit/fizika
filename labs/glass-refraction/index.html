@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Определи показатель преломления стекла по отрезкам на построении и сравни два угла падения.">
+  <title>Показатель преломления стекла · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="stylesheet" href="../../dist/styles.css?v=dark-1">
+  <link rel="stylesheet" href="../../dist/sections.css?v=buttons-1">
+  <script src="../../dist/site-menu.js?v=math-1" defer></script>
+  <script src="../../dist/motion.js?v=math-1" defer></script>
+  <link rel="stylesheet" href="../../dist/experiment-catalog.css?v=compact-1">
+  <link rel="stylesheet" href="../../dist/school-labs.css?v=grade11-1">
+  <script type="module" src="../../dist/school-labs.js?v=grade11-1"></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
+      <a href="../../theory/">Теория</a>
+      <a href="../../experiments/">Опыты</a>
+      <a href="../" aria-current="page">Лабораторные</a>
+    </nav>
+    <a class="pill primary header-link" href="https://rusalingvo.ru/" target="_blank" rel="noopener">Русский язык</a>
+  </header>
+  <main id="main" class="shell section-page school-lab" data-grade="11" data-lab="glass-refraction">
+    <header class="section-heading">
+      <a class="pill catalog-link catalog-link-back" href="../#grade-11">Все лабораторные <span aria-hidden="true">↗</span></a>
+      <p class="eyebrow section-category">11 класс · Оптика · Работа № 4</p>
+      <h1>Показатель преломления стекла</h1>
+      <p>Определи показатель преломления стекла по отрезкам на построении и сравни два угла падения.</p>
+    </header>
+    <section class="simulator" aria-label="Виртуальная установка">
+      <div class="sim-workspace">
+        <figure class="sim-figure">
+          <figcaption class="panel-label">Схема установки</figcaption>
+          <svg id="lab-diagram" viewBox="0 0 520 260" role="img" aria-label="Схема · Показатель преломления стекла"><path d="M0 228 L520 211 V260H0Z" stroke="none" fill="#191c20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="31" y="105" width="458" height="49" rx="3" fill="#1a283c" stroke="#727c92"/><text x="81" y="134" fill="#d9dce4" font-size="17" text-anchor="middle">Стекло</text><line x1="250" y1="23" x2="250" y2="237" stroke="#727c92" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/><line x1="197.04" y1="34.72" x2="250" y2="105" stroke="#ff9b48" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="250" y1="105" x2="271.46" y2="154" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="271.46" y1="154" x2="314.79" y2="211.5" stroke="#ff9b48" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><circle cx="250" cy="105" r="4" fill="#d9dce4" stroke="none"/><circle cx="271.46" cy="154" r="4" fill="#d9dce4" stroke="none"/><text x="239" y="99" fill="#d9dce4" font-size="17" text-anchor="middle">B</text><text x="286.46" y="160" fill="#d9dce4" font-size="17" text-anchor="middle">F</text></svg>
+          <p class="lab-caption">Показания смоделированы.</p>
+        </figure>
+      </div>
+      <div class="sim-controls">
+        <p class="panel-label">Настройка установки</p>
+        <form id="lab-settings" aria-label="Настройка установки"></form>
+        <div class="sim-actions">
+          <button class="pill primary" id="lab-start" type="submit" form="lab-settings">Снять показания</button>
+          <button class="pill" id="lab-record" type="button" disabled>Записать замер</button>
+        </div>
+        <p id="lab-status" class="sim-status" role="status"></p>
+        <dl class="sim-readouts" id="lab-readouts" hidden></dl>
+        <noscript><p>Для измерений в виртуальной установке включи JavaScript.</p></noscript>
+      </div>
+    </section>
+    <section class="lesson lab-method" aria-labelledby="lab-method-title">
+      <h2 id="lab-method-title">Ход работы</h2>
+      <p><strong>Оборудование.</strong> Плоскопараллельная стеклянная пластина, узкий пучок света, миллиметровая сетка, карандаш и линейка.</p>
+      <ol><li>Задай угол падения. В первом режиме нанеси по две метки на падающем и вышедшем лучах. По меткам восстанови внешние лучи и соедини точки входа B и выхода F.</li><li>Во втором режиме построй нормаль и окружность с центром в B. Она пересекает падающий луч в A, преломлённый луч или его продолжение в C. Проекции на нормаль дают E и D.</li><li>Сними AE и DC и повтори при другом угле. Для каждого отрезка погрешность 2 мм: 1 мм инструментальная и 1 мм отсчёт.</li></ol>
+    </section>
+    <section class="lesson" aria-labelledby="lab-journal-title">
+      <h2 id="lab-journal-title">Журнал измерений</h2>
+      <div class="equation-grid lab-formulas"><div><div class="math-display"><math display="block"><mrow><mi>n</mi><mo>=</mo><mfrac><mi>sin α</mi><mi>sin β</mi></mfrac><mo>=</mo><mfrac><mi>AE</mi><mi>DC</mi></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><mi>ε</mi><mo>=</mo><mfrac><mi>ΔAE</mi><mi>AE</mi></mfrac><mo>+</mo><mfrac><mi>ΔDC</mi><mi>DC</mi></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><mi>Δn</mi><mo>=</mo><mi>n</mi><mi>ε</mi></mrow></math></div></div></div>
+      <div class="measurements" tabindex="0" role="region" aria-label="Таблица измерений">
+        <table>
+          <thead><tr><th scope="col">Замер</th><th scope="col">α, °</th><th scope="col">β, °</th><th scope="col">AE, мм</th><th scope="col">DC, мм</th><th scope="col">ΔAE, мм</th><th scope="col">ΔDC, мм</th><th scope="col">n</th><th scope="col">ε, %</th><th scope="col">Δn</th></tr></thead>
+          <tbody id="lab-results"></tbody>
+        </table>
+      </div>
+      <p class="lab-summary" id="lab-summary" aria-live="polite"></p>
+      <button class="pill" id="lab-clear" type="button" disabled>Очистить таблицу</button>
+    </section>
+    <section class="lab-question" aria-labelledby="lab-question-title">
+      <h2 id="lab-question-title">Вопрос для вывода</h2>
+      <p>От чего зависит, какой метод окажется точнее — измерение углов или отрезков?</p>
+    </section>
+    <p class="lab-source">Г. Я. Мякишев, Б. Б. Буховцев, В. М. Чаругин. <a href="https://prosv.ru/product/fizika-11-klass-uchebnik-bazovii-i-uglublyonnii-urovni01/">«Физика. 11 класс»</a>, с. 416–417.</p>
+    <div class="lab-source-links">
+      <a class="lab-reference" href="../uncertainty/">Как оценивать погрешности <span aria-hidden="true">↗</span></a>
+    </div>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>

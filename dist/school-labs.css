@@ -3,6 +3,10 @@
 }
 .lab-catalog .experiment-cover { height: auto; aspect-ratio: 2 / 1; }
 .lab-catalog .lab-extra { display: block; margin-top: 5px; color: var(--muted); font-size: .83rem; }
+.lab-grade-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.lab-grade { padding-block: 22px 12px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+.lab-grade + .lab-grade { margin-top: 28px; }
+.lab-grade > h2 { margin: 0 0 22px; font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -.03em; }
 .lab-reference {
   display: inline-flex;
   align-items: center;
@@ -67,6 +71,8 @@
 .lab-summary:empty { display: none; }
 .school-lab .lab-question { margin-top: 28px; padding: 16px 19px; border-left: 2px solid var(--section-orange); background: var(--panel); }
 .school-lab .lab-source { margin-top: 27px; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.lab-source a { text-decoration: underline; text-underline-offset: .2em; }
+.lab-source-links { display: flex; flex-wrap: wrap; gap: 0 18px; }
 @media (max-width: 460px) {
   .lab-formulas { grid-template-columns: 1fr; }
   .school-lab .sim-readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
