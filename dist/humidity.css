@@ -11,7 +11,6 @@
 }
 .humidity-presets .pill { min-height: 42px; padding-inline: 15px; }
 .humidity-presets .pill[aria-pressed="true"] {
-  border-color: #5a75b0;
   background: #18233b;
   color: #c2d1ff;
 }

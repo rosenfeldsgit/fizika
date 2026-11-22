@@ -54,7 +54,6 @@
 .sim-actions { display: flex; flex-wrap: wrap; gap: 9px; margin: 19px 0 14px; }
 .sim-actions .pill { padding-inline: 1rem; white-space: normal; text-align: center; }
 .pill:disabled { opacity: .48; cursor: default; }
-.pill:disabled:hover { background: transparent; border-color: var(--line); }
 .sim-readouts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -120,8 +119,8 @@
 .theory-catalog .equation-grid .math-display { color: #2347a0; margin: 0; }
 .measurements-equations { max-width: 580px; margin: 14px 0; }
 .measurements-equations .math-display { color: var(--section-blue); margin: 0; }
-.theory-catalog .primary { background: var(--ink); border-color: var(--ink); color: var(--white); }
-.theory-catalog .primary:hover { background: #252525; border-color: #252525; color: var(--white); }
+.theory-catalog .primary { background: var(--button-gray); color: var(--white); }
+.theory-catalog .primary:not(:disabled):hover { background: var(--button-gray-hover); }
 .equation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 25px; }
 .equation-grid > div { display: grid; align-content: start; gap: 8px; padding: clamp(13px, 3vw, 25px); border-radius: 13px; border: 1px solid var(--line); background: var(--panel); }
 .equation-grid span { color: var(--muted); font-size: .9rem; }
