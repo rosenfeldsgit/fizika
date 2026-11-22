@@ -11,8 +11,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="dist/assets/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="dist/styles.css?v=buttons-1">
-  <script src="dist/topics.js" defer></script>
-  <script src="dist/app.js" defer></script>
+  <link rel="stylesheet" href="dist/sections.css?v=buttons-1">
+  <link rel="stylesheet" href="dist/school-labs.css?v=grade10-1">
+  <link rel="stylesheet" href="dist/home-labs.css?v=1">
+  <script type="module" src="dist/school-labs.js?v=home-1"></script>
+  <script src="dist/app.js?v=home-1" defer></script>
   <script src="dist/site-menu.js?v=math-1" defer></script>
   <script src="dist/motion.js?v=math-1" defer></script>
 </head>
@@ -37,26 +40,67 @@
         <h1 id="hero-title"><span class="sr-only">Физику можно понять</span><span aria-hidden="true">Физику можно<br><span class="hero-word"><span id="slogan-word">понять</span></span></span></h1>
         <p class="hero-description">Конспекты, схемы и интерактивные опыты<br class="wide-break"> для подготовки к ЕГЭ.</p>
         <div class="actions">
-          <a class="pill" href="experiments/">Попробовать опыт</a>
-          <a class="pill primary" href="theory/">Открыть атлас</a>
+          <a class="pill primary" href="experiments/">Попробовать опыт</a>
+          <a class="pill" href="labs/">Открыть лабы</a>
         </div>
       </div>
     </section>
-    <section id="atlas" class="catalog" aria-labelledby="catalog-title">
+    <section id="atlas" class="home-labs" aria-labelledby="home-labs-title">
       <div class="shell">
-        <div class="catalog-heading">
+        <header class="home-labs-heading">
           <div>
-            <p class="eyebrow">Каталог</p>
-            <h2 id="catalog-title">Разделы физики</h2>
+            <h2 id="home-labs-title">Лабораторные работы</h2>
+            <p>Настрой установку, сними показания и запиши результат в журнал. Попробуй на примере пружины.</p>
           </div>
-          <label class="search">
-            <span class="search-icon" aria-hidden="true"></span>
-            <span class="sr-only">Поиск по темам</span>
-            <input id="topic-search" type="search" placeholder="Поиск по темам" autocomplete="off">
-          </label>
+          <a class="pill" href="labs/">Все лабораторные <span aria-hidden="true">↗</span></a>
+        </header>
+        <div class="home-labs-grid">
+          <article class="school-lab home-lab-demo" data-lab="spring-stiffness" aria-labelledby="home-demo-title">
+            <header class="home-demo-header">
+              <h3 id="home-demo-title">Жёсткость пружины</h3>
+              <a href="labs/spring-stiffness/">Полная работа <span aria-hidden="true">↗</span></a>
+            </header>
+            <div class="simulator" aria-label="Виртуальная установка с пружиной">
+              <div class="sim-workspace">
+                <figure class="sim-figure">
+                  <svg id="lab-diagram" viewBox="0 0 520 260" role="img" aria-label="Схема · Жёсткость пружины"><path d="M0 220 L520 201 V260 H0 Z" fill="#191c20" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="153" y1="41" x2="356" y2="41" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><rect x="301" y="63" width="19" height="151" rx="2" fill="#292e39" stroke="#666d80" stroke-width="2"/><line x1="301" y1="72.44" x2="314" y2="72.44" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="81.88" x2="308" y2="81.88" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="91.31" x2="308" y2="91.31" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="100.75" x2="308" y2="100.75" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="110.19" x2="308" y2="110.19" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="119.63" x2="314" y2="119.63" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="129.06" x2="308" y2="129.06" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="138.5" x2="308" y2="138.5" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="147.94" x2="308" y2="147.94" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="157.38" x2="308" y2="157.38" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="166.81" x2="314" y2="166.81" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="176.25" x2="308" y2="176.25" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="185.69" x2="308" y2="185.69" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="195.13" x2="308" y2="195.13" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="301" y1="204.56" x2="308" y2="204.56" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><path d="M246 42L260 46.39L232 50.78L260 55.17L232 59.56L260 63.94L232 68.33L260 72.72L232 77.11L260 81.5L232 85.89L260 90.28L232 94.67L260 99.06L232 103.44L260 107.83L232 112.22L260 116.61L246 121" fill="none" stroke="#83a7ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="189" y1="121" x2="301" y2="121" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/><text x="172" y="127" fill="#d9dce4" text-anchor="middle">h₀</text><line x1="261" y1="121" x2="301" y2="121" stroke="#ff9b48" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/><rect x="227" y="121" width="38" height="27" rx="4" fill="#63391d" stroke="#ff9b48" stroke-width="2"/><text x="246" y="141" fill="#d9dce4" text-anchor="middle">P</text><text x="362" y="126" fill="#ff9b48" text-anchor="middle">hᵢ</text></svg>
+                  <figcaption class="lab-caption">Показания смоделированы.</figcaption>
+                </figure>
+              </div>
+              <div class="sim-controls">
+                <form id="lab-settings" aria-label="Настройка установки"></form>
+                <div class="sim-actions">
+                  <button class="pill primary" id="lab-start" type="submit" form="lab-settings">Снять показания</button>
+                  <button class="pill" id="lab-record" type="button" disabled>Записать замер</button>
+                </div>
+                <p id="lab-status" class="sim-status" role="status"></p>
+                <dl class="sim-readouts" id="lab-readouts" hidden></dl>
+                <noscript><p>Для измерений в виртуальной установке включи JavaScript.</p></noscript>
+              </div>
+            </div>
+            <div class="home-demo-journal">
+              <h4>Журнал измерений</h4>
+              <div class="measurements" tabindex="0" role="region" aria-label="Таблица измерений">
+                <table>
+                  <thead><tr><th scope="col">Замер</th><th scope="col">P, Н</th><th scope="col">x, мм</th><th scope="col">h₀, мм</th><th scope="col">hᵢ, мм</th><th scope="col">Δhᵢ, мм</th><th scope="col">k₁, Н/м</th><th scope="col">k₂, Н/м</th></tr></thead>
+                  <tbody id="lab-results"></tbody>
+                </table>
+              </div>
+              <p class="lab-summary" id="lab-summary" aria-live="polite"></p>
+              <button class="pill" id="lab-clear" type="button" disabled>Очистить таблицу</button>
+            </div>
+          </article>
+          <aside class="home-lab-book" aria-label="Учебник для лабораторных">
+            <figure>
+              <img src="dist/assets/myakishev-cover.svg" width="256" height="336" alt="">
+              <figcaption>
+                <strong>Физика · 10 класс</strong>
+                <span>Г. Я. Мякишев, Б. Б. Буховцев, Н. Н. Сотский</span>
+              </figcaption>
+            </figure>
+            <p>Девять виртуальных работ по учебнику, с. 412–423.</p>
+          </aside>
         </div>
-        <ul class="topic-list" id="topic-list"></ul>
-        <p class="empty" id="no-results" hidden role="status">Темы не найдены. Попробуй «линза» или «кинетика».</p>
       </div>
     </section>
     <section id="experiment" class="experiment shell" aria-labelledby="experiment-title">
@@ -104,30 +148,5 @@
     <a class="brand" href="./"><img class="mark" src="dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
     <a href="labs/">Лабораторные работы</a>
   </footer>
-  <dialog id="material" aria-labelledby="material-title">
-    <div class="material-body">
-      <button class="close" type="button" aria-label="Закрыть" autofocus>×</button>
-      <p id="material-kicker" class="eyebrow"></p>
-      <h2 id="material-title"></h2>
-      <div id="material-content"></div>
-    </div>
-  </dialog>
-  <template id="lens-note">
-    <p>Собирающая линза отклоняет лучи, идущие параллельно главной оптической оси, к фокусу. Луч через оптический центр в модели тонкой линзы идёт прямо.</p>
-    <figure class="note-figure">
-      <svg viewBox="0 0 460 170" role="img" aria-label="Два луча от вершины предмета сходятся справа от линзы, образуя перевёрнутое изображение">
-        <path d="M15 85H445" stroke="#817982" stroke-dasharray="4 4"/>
-        <path d="M230 13Q258 85 230 157Q202 85 230 13Z" fill="#efebff" stroke="#6200ee"/>
-        <path d="M70 38H230L390 132 M70 38L390 132" stroke="#d90021" stroke-width="2" fill="none"/>
-        <path d="M70 85V38m-5 5l5-5l5 5 M390 85v47m-5 -5l5 5l5-5" stroke="#211c25" stroke-width="2" fill="none"/>
-        <circle cx="150" cy="85" r="3" fill="#6200ee"/><circle cx="310" cy="85" r="3" fill="#6200ee"/>
-        <text x="146" y="104">F</text><text x="306" y="104">F</text>
-      </svg>
-      <figcaption>Предмет находится на двойном фокусном расстоянии.</figcaption>
-    </figure>
-    <div class="math-display"><math display="block"><mrow><mfrac><mn>1</mn><mi>f</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>d</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>b</mi></mfrac></mrow></math></div>
-    <p><var>f</var> — фокусное расстояние, <var>d</var> — расстояние до предмета, <var>b</var> — расстояние до изображения со знаком. Если <var>b</var> отрицательно, изображение мнимое и находится со стороны предмета.</p>
-    <a class="pill primary" href="#experiment" data-close-dialog>Проверить на опыте</a>
-  </template>
 </body>
 </html>

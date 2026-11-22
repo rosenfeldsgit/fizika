@@ -1,0 +1,87 @@
+.home-labs {
+  padding-block: clamp(40px, 6vw, 72px);
+  background: var(--paper);
+  color: var(--ink);
+  color-scheme: light;
+  --section-blue: #83a7ff;
+  --section-orange: #ff9b48;
+}
+.home-labs-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  margin-bottom: 26px;
+}
+.home-labs-heading h2 { margin: 0 0 12px; }
+.home-labs-heading p { max-width: 52ch; color: var(--light-muted); line-height: 1.55; }
+.home-labs-heading .pill { gap: 8px; }
+.home-labs-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+.home-lab-demo {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  min-width: 0;
+  background: var(--panel);
+  color: var(--white);
+  color-scheme: dark;
+}
+.home-demo-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 20px clamp(14px, 2.2vw, 23px);
+  border-bottom: 1px solid var(--line);
+}
+.home-demo-header h3 { margin: 0; font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 550; }
+.home-demo-header a { color: var(--section-blue); font-size: .88rem; }
+.home-demo-header a:hover { text-decoration: underline; text-underline-offset: .22em; }
+.home-lab-demo .simulator { border: 0; border-radius: 0; grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr); }
+.home-lab-demo .sim-figure { display: grid; align-content: center; }
+.home-lab-demo #lab-diagram { min-height: 0; margin: 0 0 10px; }
+.home-lab-demo .sim-controls { min-width: 0; }
+.home-lab-demo .sim-actions .pill { font-size: .8rem; padding-inline: .8rem; }
+.home-lab-demo .sim-status { min-height: 2.8em; margin: 0; }
+.home-demo-journal { padding: 16px clamp(14px, 2.2vw, 23px) 20px; border-top: 1px solid var(--line); }
+.home-demo-journal h4 { margin: 0; font-weight: 550; }
+.home-demo-journal .lab-summary { min-height: 2.75em; color: var(--muted); font-size: .85rem; line-height: 1.45; }
+.home-demo-journal .pill { margin-top: 12px; }
+.home-lab-book {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: clamp(17px, 2.6vw, 28px);
+  border: 1px solid #dfe2ef;
+  border-radius: 20px;
+  background: #f2f4ff;
+}
+.home-lab-book img {
+  display: block;
+  width: min(100%, 192px);
+  height: auto;
+  margin: 0 auto 20px;
+  border-radius: 6px;
+  box-shadow: 0 9px 22px rgb(28 34 91 / 18%);
+}
+.home-lab-book figcaption { display: grid; gap: 6px; }
+.home-lab-book strong { font-size: 1.15rem; font-weight: 600; }
+.home-lab-book span, .home-lab-book p { color: #4f5368; font-size: .88rem; line-height: 1.5; }
+@media (max-width: 850px) {
+  .home-labs-grid { grid-template-columns: 1fr; }
+  .home-lab-book figure { display: flex; align-items: center; gap: 18px; }
+  .home-lab-book img { width: clamp(84px, 24vw, 128px); margin: 0; }
+}
+@media (max-width: 620px) {
+  .home-lab-demo .simulator { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 621px) and (max-width: 760px) {
+  .home-lab-demo .sim-controls { border-left: 1px solid var(--line); border-top: 0; }
+}

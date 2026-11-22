@@ -4,17 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Разделы физики для подготовки к ЕГЭ и конспект по самоиндукции в RL-цепи.">
+  <meta name="description" content="Конспекты по самоиндукции и тонкой линзе для подготовки к ЕГЭ.">
   <title>Теория · Атлас физики</title>
   <link rel="icon" type="image/png" sizes="32x32" href="../dist/assets/icons/favicon-32.png">
   <link rel="icon" type="image/svg+xml" sizes="any" href="../dist/assets/icons/logo.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="../dist/assets/icons/apple-touch-icon-180.png">
   <link rel="manifest" href="../manifest.webmanifest">
   <link rel="stylesheet" href="../dist/styles.css?v=buttons-1">
-  <link rel="stylesheet" href="../dist/sections.css?v=buttons-1">
+  <link rel="stylesheet" href="../dist/sections.css?v=notes-1">
   <script src="../dist/site-menu.js?v=math-1" defer></script>
-  <script src="../dist/topics.js" defer></script>
-  <script src="../dist/theory.js" defer></script>
   <script src="../dist/motion.js?v=math-1" defer></script>
 </head>
 <body>
@@ -31,19 +29,7 @@
   </header>
   <main id="main" class="catalog theory-catalog">
     <div class="shell">
-      <div class="catalog-heading">
-        <div>
-          <p class="eyebrow">Теория</p>
-          <h1>Разделы физики</h1>
-        </div>
-        <label class="search">
-          <span class="search-icon" aria-hidden="true"></span>
-          <span class="sr-only">Поиск по темам</span>
-          <input id="topic-search" type="search" placeholder="Поиск по темам" autocomplete="off">
-        </label>
-      </div>
-      <ul class="topic-list" id="topic-list"></ul>
-      <p class="empty" id="no-results" hidden role="status">Темы не найдены.</p>
+      <header class="catalog-heading"><h1>Теория</h1></header>
       <article class="lesson theory-note" id="rl-circuit" aria-label="Самоиндукция в RL-цепи">
         <h2>Самоиндукция</h2>
         <div class="equation-grid">
@@ -60,6 +46,24 @@
         <div class="math-display"><math display="block"><mrow><mi>I</mi><mrow><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mo>=</mo><msub><mi>I</mi><mn>0</mn></msub><mo>·</mo><msup><mi mathvariant="normal">e</mi><mrow><mo>−</mo><mfrac><mi>t</mi><mi>τ</mi></mfrac></mrow></msup></mrow></math></div>
         <p>Начальный ток <math><mrow><msub><mi>I</mi><mn>0</mn></msub></mrow></math> равен току в момент переключения. Через время <var>τ</var> остаётся примерно 37% начального тока.</p>
         <a class="pill primary" href="../experiments/rl-circuit/">Проверить на опыте</a>
+      </article>
+      <article class="lesson theory-note" id="thin-lens" aria-labelledby="thin-lens-title">
+        <h2 id="thin-lens-title">Тонкая линза</h2>
+        <p>Собирающая линза отклоняет лучи, идущие параллельно главной оптической оси, к фокусу. Луч через оптический центр в модели тонкой линзы идёт прямо.</p>
+        <figure class="note-figure">
+          <svg viewBox="0 0 460 170" role="img" aria-label="Два луча от вершины предмета сходятся справа от линзы, образуя перевёрнутое изображение">
+            <path d="M15 85H445" stroke="#817982" stroke-dasharray="4 4"/>
+            <path d="M230 13Q258 85 230 157Q202 85 230 13Z" fill="#efebff" stroke="#6200ee"/>
+            <path d="M70 38H230L390 132 M70 38L390 132" stroke="#d90021" stroke-width="2" fill="none"/>
+            <path d="M70 85V38m-5 5l5-5l5 5 M390 85v47m-5 -5l5 5l5-5" stroke="#211c25" stroke-width="2" fill="none"/>
+            <circle cx="150" cy="85" r="3" fill="#6200ee"/><circle cx="310" cy="85" r="3" fill="#6200ee"/>
+            <text x="146" y="104">F</text><text x="306" y="104">F</text>
+          </svg>
+          <figcaption>Предмет находится на двойном фокусном расстоянии.</figcaption>
+        </figure>
+        <div class="math-display"><math display="block"><mrow><mfrac><mn>1</mn><mi>f</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>d</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>b</mi></mfrac></mrow></math></div>
+        <p><var>f</var> — фокусное расстояние, <var>d</var> — расстояние до предмета, <var>b</var> — расстояние до изображения со знаком. Если <var>b</var> отрицательно, изображение мнимое и находится со стороны предмета.</p>
+        <a class="pill primary" href="../#experiment">Проверить на опыте</a>
       </article>
     </div>
   </main>

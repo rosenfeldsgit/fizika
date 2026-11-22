@@ -3,50 +3,16 @@
 const centimeters = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 1 });
 const formatDistance = (value) => centimeters.format(value) + " см";
 
-const material = byId("material");
-const materialContent = byId("material-content");
-const materialClose = material.querySelector(".close");
+const byId = (id) => document.getElementById(id);
+const svgNS = "http://www.w3.org/2000/svg";
 
-function showMaterial(kicker, title, content) {
-  byId("material-kicker").textContent = kicker;
-  byId("material-title").textContent = title;
-  materialContent.replaceChildren(content);
-  if (!material.open) material.showModal();
-  material.scrollTop = 0;
-  materialClose.focus({ preventScroll: true });
-}
-
-function openTopic(topic) {
-  const content = document.createDocumentFragment();
-  const intro = document.createElement("p");
-  intro.textContent = topic.hasDemo
-    ? "Открой пример конспекта со схемой и формулой."
-    : "Конспекты, опыты и лабораторные работы для этого раздела готовятся.";
-  content.append(intro);
-  if (topic.hasDemo) {
-    const noteButton = document.createElement("button");
-    noteButton.className = "pill primary";
-    noteButton.type = "button";
-    noteButton.textContent = "Конспект «Тонкая линза»";
-    noteButton.addEventListener("click", () => {
-      showMaterial("Конспект · Оптика", "Тонкая линза", byId("lens-note").content.cloneNode(true));
-    });
-    content.append(noteButton);
+function svgElement(tag, attributes) {
+  const element = document.createElementNS(svgNS, tag);
+  for (const [name, value] of Object.entries(attributes)) {
+    element.setAttribute(name, value);
   }
-  const chapters = document.createElement("ul");
-  for (const chapter of topic.chapters) {
-    const item = document.createElement("li");
-    item.textContent = chapter;
-    chapters.append(item);
-  }
-  content.append(chapters);
-  showMaterial("Раздел атласа", topic.title, content);
+  return element;
 }
-
-materialClose.addEventListener("click", () => material.close());
-material.addEventListener("click", (event) => {
-  if (event.target === material || event.target.closest("[data-close-dialog]")) material.close();
-});
 
 const slogan = byId("slogan-word");
 const sloganWords = ["понять", "увидеть", "почувствовать"];
@@ -71,16 +37,6 @@ function scheduleSlogan() {
 quietMotion.addEventListener("change", scheduleSlogan);
 document.addEventListener("visibilitychange", scheduleSlogan);
 scheduleSlogan();
-
-mountTopicCatalog((topic) => {
-  const item = document.createElement("li");
-  const control = document.createElement("button");
-  control.type = "button";
-  control.setAttribute("aria-haspopup", "dialog");
-  control.addEventListener("click", () => openTopic(topic));
-  item.append(control);
-  return { item, control };
-});
 
 const distanceInput = byId("distance");
 const focusInput = byId("focus");
