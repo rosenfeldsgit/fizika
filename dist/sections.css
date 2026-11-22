@@ -1,13 +1,14 @@
 .section-page {
+  --content-width: 960px;
   --section-blue: #83a7ff;
   --section-orange: #ff9b48;
-  padding: clamp(45px, 7vw, 100px) 0 clamp(54px, 8vw, 110px);
+  padding: clamp(32px, 4.5vw, 58px) 0 clamp(48px, 6.5vw, 80px);
 }
-.section-heading { max-width: 900px; margin-bottom: clamp(26px, 5vw, 56px); }
+.section-heading { max-width: 740px; margin-bottom: clamp(22px, 3.2vw, 38px); }
 .section-category { color: var(--section-blue); }
 .section-heading h1 {
-  margin-block: 20px 18px;
-  font-size: clamp(2.3rem, 6.3vw, 5.65rem);
+  margin-block: 15px 14px;
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
   font-weight: 560;
   line-height: 1.02;
   letter-spacing: -.035em;
@@ -16,19 +17,19 @@
 .section-heading > p:last-child, .lesson > p {
   max-width: 68ch;
   color: var(--muted);
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 .simulator {
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(0, 1.65fr) minmax(275px, 1fr);
   border: 1px solid var(--line);
   background: var(--panel);
   border-radius: 20px;
   overflow: hidden;
 }
 .sim-workspace { min-width: 0; }
-.sim-figure, .sim-controls { padding: clamp(16px, 3.4vw, 34px); }
+.sim-figure, .sim-controls { padding: clamp(16px, 2.2vw, 23px); }
 .sim-figure svg { display: block; width: 100%; height: auto; }
 .sim-chart { border-top: 1px solid var(--line); }
 .sim-controls { border-left: 1px solid var(--line); }
@@ -37,7 +38,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 5px 10px;
-  margin-bottom: 15px;
+  margin-bottom: 11px;
   align-items: baseline;
 }
 .sim-slider output { color: var(--section-blue); font-variant-numeric: tabular-nums; }
@@ -57,9 +58,9 @@
 .sim-readouts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px 12px;
-  margin: 24px 0 0;
-  padding-top: 22px;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
 .sim-readouts div { min-width: 0; }
@@ -101,12 +102,12 @@
 .guide-line { stroke: #767676; stroke-width: 1.5; stroke-dasharray: 4 5; }
 .pendulum-support { stroke: #b5b5b5; stroke-width: 3; }
 .pendulum-string { stroke: var(--section-blue); stroke-width: 3; }
-.lesson { margin-top: clamp(38px, 6vw, 82px); }
-.lesson h2 { margin: 0 0 14px; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.035em; }
+.lesson { margin-top: clamp(34px, 5vw, 60px); }
+.lesson h2 { margin: 0 0 14px; font-size: clamp(1.65rem, 3.2vw, 2.45rem); letter-spacing: -.035em; }
 .lesson .pill { margin-top: 18px; }
 .theory-note { max-width: 850px; margin-top: 0; }
 .theory-note h2 { margin: 30px 0 10px; font-size: clamp(1.4rem, 3vw, 2.1rem); }
-.theory-catalog h1 { margin-top: 12px; font-weight: 530; font-size: clamp(2.3rem, 4.55vw, 4.25rem); line-height: 1.04; letter-spacing: -.055em; }
+.theory-catalog h1 { margin-top: 12px; font-weight: 530; font-size: clamp(2.3rem, 4vw, 3.3rem); line-height: 1.04; letter-spacing: -.055em; }
 .theory-catalog summary { cursor: pointer; list-style: none; }
 .theory-catalog summary::-webkit-details-marker { display: none; }
 .theory-catalog summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

@@ -21,6 +21,7 @@
   --panel: #101010;
   --math-font: "Latin Modern Math", "Cambria Math", "Times New Roman", serif;
   --gutter: clamp(24px, 5vw, 72px);
+  --content-width: 1056px;
   font-family: "Golos Text", Arial, sans-serif;
   font-weight: 400;
   background: var(--ink);
@@ -57,9 +58,9 @@ figure, p, h1, h2, ul { margin: 0; }
   color: var(--ink);
   background: var(--white);
 }
-.shell { width: min(100% - 2 * var(--gutter), 1296px); margin-inline: auto; }
+.shell { width: min(100% - 2 * var(--gutter), var(--content-width)); margin-inline: auto; }
 .top {
-  height: 74px;
+  height: 66px;
   border-bottom: 1px solid var(--line);
   display: grid;
   align-items: center;
@@ -98,7 +99,7 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
   position: relative;
   display: grid;
   grid-template-columns: 48% 52%;
-  min-height: 594px;
+  min-height: 510px;
   align-items: center;
   padding-block: 32px 48px;
 }
@@ -112,7 +113,7 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
 }
 .hero h1 {
   margin: 0 0 34px -7px;
-  font-size: clamp(2.25rem, 5.2vw, 5rem);
+  font-size: clamp(2.25rem, 4.5vw, 4.25rem);
   font-weight: 560;
   line-height: 1.04;
   letter-spacing: -.025em;
@@ -143,10 +144,10 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
   mask-image: linear-gradient(90deg, transparent, black 9%, black 96%, transparent);
 }
 #wave-canvas { display: block; width: 100%; height: 100%; }
-.catalog { background: var(--paper); color: var(--ink); color-scheme: light; padding: 70px 0 79px; }
+.catalog { background: var(--paper); color: var(--ink); color-scheme: light; padding: 56px 0 64px; }
 .catalog .eyebrow { color: var(--light-muted); }
 .catalog-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 33px; }
-h2 { font-size: clamp(2.3rem, 4.55vw, 4.25rem); font-weight: 530; line-height: 1.04; letter-spacing: -.055em; }
+h2 { font-size: clamp(2.3rem, 4vw, 3.3rem); font-weight: 530; line-height: 1.04; letter-spacing: -.055em; }
 section h2 { margin: 17px 0 13px -.055em; }
 .search {
   position: relative;
@@ -270,7 +271,7 @@ math, var, #ray-diagram text, .note-figure svg text { font-family: var(--math-fo
 }
 
 @media (max-width: 900px) {
-  .hero { min-height: 515px; }
+  .hero { min-height: 460px; }
   .hero h1 { margin-left: -4px; }
   .wide-break { display: none; }
   .catalog, .experiment { padding-block: 48px; }
