@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Справка по погрешностям для виртуальных лабораторных работ.">
+  <title>Как оценивать погрешности · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="stylesheet" href="../../dist/styles.css?v=buttons-1">
+  <link rel="stylesheet" href="../../dist/sections.css?v=buttons-1">
+  <script src="../../dist/site-menu.js?v=math-1" defer></script>
+  <script src="../../dist/motion.js?v=math-1" defer></script>
+  <link rel="stylesheet" href="../../dist/experiment-catalog.css?v=compact-1">
+  <link rel="stylesheet" href="../../dist/school-labs.css?v=grade10-1">
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
+      <a href="../../theory/">Теория</a>
+      <a href="../../experiments/">Опыты</a>
+      <a href="../" aria-current="page">Лабораторные</a>
+    </nav>
+    <a class="pill primary header-link" href="https://rusalingvo.ru/" target="_blank" rel="noopener">Русский язык</a>
+  </header>
+  <main id="main" class="shell section-page school-lab">
+    <header class="section-heading">
+      <a class="experiment-back" href="../">← Все лабораторные</a>
+      <h1>Как оценивать погрешности</h1>
+      <p>Записывай результат измерения в виде <var>A ± ΔA</var> и указывай единицу измерения.</p>
+    </header>
+    <section class="lesson lab-method" aria-labelledby="direct">
+      <h2 id="direct">Прямые измерения</h2>
+      <p>Сложи инструментальную погрешность и погрешность отсчёта. Для шкалы погрешность отсчёта обычно равна половине цены деления, а для измерения времени — целому делению. Если задан класс точности, умножь верхний предел шкалы на класс точности и раздели на 100.</p>
+      <div class="equation-grid lab-formulas"><div><div class="math-display"><math display="block"><mrow><mi>ΔA</mi><mo>=</mo><msub><mi>Δ</mi><mi>инстр</mi></msub><mo>+</mo><msub><mi>Δ</mi><mi>отсч</mi></msub></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><msub><mi>Δ</mi><mi>инстр</mi></msub><mo>=</mo><mfrac><mrow><mi>γ</mi><msub><mi>A</mi><mi>макс</mi></msub></mrow><mn>100</mn></mfrac></mrow></math></div></div></div>
+      <p>У линейки с делением 1 мм и инструментальной погрешностью 1 мм общая погрешность составляет 1,5 мм. Характеристики виртуальных приборов указаны в тех работах, где они нужны для расчёта.</p>
+    </section>
+    <section class="lesson lab-method" aria-labelledby="indirect">
+      <h2 id="indirect">Расчёты и сравнение</h2>
+      <p>Для суммы и разности сложи абсолютные погрешности, сохраняя единицы величины. Для произведения и частного сложи относительные погрешности в долях, затем умножь их сумму на модуль рассчитанного значения. Чтобы получить проценты, умножь долю на 100.</p>
+      <div class="equation-grid lab-formulas"><div><div class="math-display"><math display="block"><mrow><mi>ε</mi><mo>=</mo><mfrac><mi>ΔA</mi><mrow><mo>|</mo><mi>A</mi><mo>|</mo></mrow></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><msub><mi>ε</mi><mi>%</mi></msub><mo>=</mo><mn>100</mn><mo>·</mo><mi>ε</mi></mrow></math></div></div></div>
+      <p>Округли абсолютную погрешность обычно до одной значащей цифры, а результат — до того же разряда. Сравни интервалы от <var>A − ΔA</var> до <var>A + ΔA</var>. Если у них есть общая часть, результаты согласуются в пределах погрешности.</p>
+      <p>Усреднение может уменьшить случайный разброс. Погрешность общего исходного измерения, например напряжения холостого хода, остаётся во всех зависимых результатах.</p>
+    </section>
+    <p class="lab-source">Г. Я. Мякишев, Б. Б. Буховцев, Н. Н. Сотский. «Физика. 10 класс», с. 409–412.</p>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>

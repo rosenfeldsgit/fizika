@@ -1,0 +1,78 @@
+.lab-catalog .experiment-cover, .school-lab #lab-diagram {
+  font: 17px var(--math-font);
+}
+.lab-catalog .experiment-cover { height: auto; aspect-ratio: 2 / 1; }
+.lab-catalog .lab-extra { display: block; margin-top: 5px; color: var(--muted); font-size: .83rem; }
+.lab-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  color: var(--section-blue);
+}
+.lab-reference:hover { text-decoration: underline; text-underline-offset: .24em; }
+.school-lab .section-heading h1 { max-width: 22ch; }
+.school-lab .sim-workspace { display: block; }
+.school-lab .sim-figure { height: 100%; background: radial-gradient(ellipse at 50% 45%, #1b1d21, var(--panel) 75%); }
+.school-lab #lab-diagram { min-height: 160px; margin: 14px 0; }
+.lab-caption { color: var(--muted); font-size: .82rem; }
+.lab-mode { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; border: 0; }
+.lab-mode legend, .lab-choice label { margin-bottom: 7px; }
+.lab-mode label { position: relative; cursor: pointer; }
+.lab-mode input { position: absolute; inset: 0; opacity: 0; }
+.lab-mode span {
+  display: inline-block;
+  padding: 8px 11px;
+  border-radius: 10px;
+  background: var(--button-gray);
+  color: var(--white);
+  font-size: .86rem;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+.lab-mode input:checked + span { background: var(--white); color: #000; }
+.lab-mode input:active + span { transform: scale(.98); }
+.lab-mode input:focus-visible + span, .lab-choice select:focus-visible, .school-lab .measurements:focus-visible {
+  outline: 2px solid var(--section-blue);
+  outline-offset: 2px;
+}
+.lab-choice { display: grid; margin-bottom: 15px; }
+.lab-choice select {
+  width: 100%;
+  min-height: 41px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 6px 9px;
+  background: var(--button-gray);
+  color: var(--white);
+  font: inherit;
+  color-scheme: dark;
+}
+.lab-choice select:disabled { opacity: .65; }
+.school-lab [hidden] { display: none; }
+.school-lab .sim-readouts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.school-lab .sim-readouts dd { font-size: .92rem; overflow-wrap: anywhere; }
+.school-lab .sim-readouts dt { font-size: .78rem; }
+.school-lab .sim-controls .panel-label { margin-bottom: 14px; }
+.school-lab .lab-method { margin-top: 28px; }
+.lab-method li { margin-bottom: 9px; line-height: 1.55; }
+.lab-method ol { max-width: 70ch; padding-inline-start: 1.4rem; color: var(--muted); }
+.lab-method p + p, .lab-method ol + p { margin-top: 12px; }
+.lab-formulas { margin: 18px 0; }
+.lab-formulas > div { min-width: 0; padding: 11px 15px; }
+.lab-formulas .math-display { margin: 0; overflow-x: auto; font-size: 1.14rem; }
+.lab-formulas math { color: var(--section-blue); }
+.school-lab .measurements { margin-top: 14px; }
+.school-lab .measurements th, .school-lab .measurements td { font-size: .87rem; }
+.school-lab .measurements tbody th { font-weight: 450; }
+.lab-summary { margin-top: 16px; }
+.lab-summary:empty { display: none; }
+.school-lab .lab-question { margin-top: 28px; padding: 16px 19px; border-left: 2px solid var(--section-orange); background: var(--panel); }
+.school-lab .lab-source { margin-top: 27px; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+@media (max-width: 460px) {
+  .lab-formulas { grid-template-columns: 1fr; }
+  .school-lab .sim-readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-mode span { transition: none; }
+  .lab-mode input:active + span { transform: none; }
+}

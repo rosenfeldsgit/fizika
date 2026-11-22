@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Сравни три способа найти центростремительное ускорение конического маятника.">
+  <title>Движение по окружности · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="stylesheet" href="../../dist/styles.css?v=buttons-1">
+  <link rel="stylesheet" href="../../dist/sections.css?v=buttons-1">
+  <script src="../../dist/site-menu.js?v=math-1" defer></script>
+  <script src="../../dist/motion.js?v=math-1" defer></script>
+  <link rel="stylesheet" href="../../dist/experiment-catalog.css?v=compact-1">
+  <link rel="stylesheet" href="../../dist/school-labs.css?v=grade10-1">
+  <script type="module" src="../../dist/school-labs.js?v=grade10-1"></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
+      <a href="../../theory/">Теория</a>
+      <a href="../../experiments/">Опыты</a>
+      <a href="../" aria-current="page">Лабораторные</a>
+    </nav>
+    <a class="pill primary header-link" href="https://rusalingvo.ru/" target="_blank" rel="noopener">Русский язык</a>
+  </header>
+  <main id="main" class="shell section-page school-lab" data-lab="circular-motion">
+    <header class="section-heading">
+      <a class="experiment-back" href="../">← Все лабораторные</a>
+      <p class="eyebrow section-category">Механика · 10 класс</p>
+      <h1>Движение по окружности</h1>
+      <p>Сравни три способа найти центростремительное ускорение конического маятника.</p>
+    </header>
+    <section class="simulator" aria-label="Виртуальная установка">
+      <div class="sim-workspace">
+        <figure class="sim-figure">
+          <figcaption class="panel-label">Схема установки</figcaption>
+          <svg id="lab-diagram" viewBox="0 0 520 260" role="img" aria-label="Схема · Движение по окружности"><path d="M0 220 L520 201 V260 H0 Z" fill="#191c20" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><text x="155" y="33" fill="#d9dce4" text-anchor="middle">Вид сбоку</text><text x="374" y="33" fill="#d9dce4" text-anchor="middle">Вид сверху</text><line x1="258" y1="33" x2="258" y2="219" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 6"/><line x1="108" y1="59" x2="200" y2="59" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="156" y1="59" x2="156" y2="137.63" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/><line x1="156" y1="137.63" x2="202.8" y2="137.63" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 5"/><line x1="156" y1="59" x2="202.8" y2="137.63" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><text x="145" y="98.31478923163" fill="#d9dce4" text-anchor="middle">h</text><text x="179.4" y="161.62957846326" fill="#d9dce4" text-anchor="middle">R</text><circle cx="202.8" cy="137.63" r="9" fill="#ff9b48" stroke="none" stroke-width="2"/><line x1="202.8" y1="146.63" x2="202.8" y2="176.63" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="202.8" y1="176.63" x2="198.33" y2="168.82" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="202.8" y1="176.63" x2="207.27" y2="168.82" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><text x="222.8" y="178.62957846326" fill="#83a7ff" text-anchor="middle">mg</text><circle cx="374" cy="132" r="46.800000000000004" fill="none" stroke="#83a7ff" stroke-width="2"/><circle cx="374" cy="132" r="3" fill="#d9dce4" stroke="none" stroke-width="2"/><line x1="374" y1="132" x2="420.8" y2="132" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/><circle cx="420.8" cy="132" r="7" fill="#ff9b48" stroke="none" stroke-width="2"/></svg>
+          <p class="lab-caption">Показания смоделированы.</p>
+        </figure>
+      </div>
+      <div class="sim-controls">
+        <p class="panel-label">Настройка установки</p>
+        <form id="lab-settings" aria-label="Настройка установки"></form>
+        <div class="sim-actions">
+          <button class="pill primary" id="lab-start" type="submit" form="lab-settings">Снять показания</button>
+          <button class="pill" id="lab-record" type="button" disabled>Записать замер</button>
+        </div>
+        <p id="lab-status" class="sim-status" role="status"></p>
+        <dl class="sim-readouts" id="lab-readouts" hidden></dl>
+        <noscript><p>Для измерений в виртуальной установке включи JavaScript.</p></noscript>
+      </div>
+    </section>
+    <section class="lesson lab-method" aria-labelledby="lab-method-title">
+      <h2 id="lab-method-title">Ход работы</h2>
+      <p><strong>Оборудование.</strong> Шарик на нити, штатив, пробка, циркуль, бумага, линейка, весы, секундомер и динамометр.</p>
+      <ol><li>Задай длину нити, радиус, массу и число оборотов. В режиме «Вращение» сними время N оборотов и найди период.</li><li>Переключись на динамометр, сохраняя геометрию. Оттяни шарик горизонтально и запиши полный замер. Высоту h измеряют по вертикали от подвеса до центра шарика.</li><li>Сопоставь три ускорения. Секундомер округляет до 0,01 с, линейка — до 1 мм, динамометр — до 0,01 Н.</li></ol>
+    </section>
+    <section class="lesson" aria-labelledby="lab-journal-title">
+      <h2 id="lab-journal-title">Журнал измерений</h2>
+      <div class="equation-grid lab-formulas"><div><div class="math-display"><math display="block"><mrow><mi>T</mi><mo>=</mo><mfrac><mi>Δt</mi><mi>N</mi></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mn>4</mn><msup><mi>π</mi><mn>2</mn></msup><mi>R</mi></mrow><msup><mi>T</mi><mn>2</mn></msup></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mi>g</mi><mi>R</mi></mrow><mi>h</mi></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><msub><mi>a</mi><mn>3</mn></msub><mo>=</mo><mfrac><msub><mi>F</mi><mn>1</mn></msub><mi>m</mi></mfrac></mrow></math></div></div></div>
+      <div class="measurements" tabindex="0" role="region" aria-label="Таблица измерений">
+        <table>
+          <thead><tr><th scope="col">Замер</th><th scope="col">R, м</th><th scope="col">N</th><th scope="col">Δt, с</th><th scope="col">T, с</th><th scope="col">h, м</th><th scope="col">m, кг</th><th scope="col">F₁, Н</th><th scope="col">a₁, м/с²</th><th scope="col">a₂, м/с²</th><th scope="col">a₃, м/с²</th></tr></thead>
+          <tbody id="lab-results"></tbody>
+        </table>
+      </div>
+      <p class="lab-summary" id="lab-summary" aria-live="polite"></p>
+      <button class="pill" id="lab-clear" type="button" disabled>Очистить таблицу</button>
+    </section>
+    <section class="lab-question" aria-labelledby="lab-question-title">
+      <h2 id="lab-question-title">Вопрос для вывода</h2>
+      <p>Почему динамометр тянут горизонтально?</p>
+    </section>
+    <p class="lab-source">Г. Я. Мякишев, Б. Б. Буховцев, Н. Н. Сотский. «Физика. 10 класс», с. 413–414.</p>
+    <a class="lab-reference" href="../uncertainty/">Как оценивать погрешности <span aria-hidden="true">↗</span></a>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>

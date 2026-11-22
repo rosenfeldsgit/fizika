@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Проверь отношение объёмов и абсолютных температур воздуха при одинаковом давлении.">
+  <title>Закон Гей-Люссака · Атлас физики</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../dist/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/svg+xml" sizes="any" href="../../dist/assets/icons/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../dist/assets/icons/apple-touch-icon-180.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="stylesheet" href="../../dist/styles.css?v=buttons-1">
+  <link rel="stylesheet" href="../../dist/sections.css?v=buttons-1">
+  <script src="../../dist/site-menu.js?v=math-1" defer></script>
+  <script src="../../dist/motion.js?v=math-1" defer></script>
+  <link rel="stylesheet" href="../../dist/experiment-catalog.css?v=compact-1">
+  <link rel="stylesheet" href="../../dist/school-labs.css?v=grade10-1">
+  <script type="module" src="../../dist/school-labs.js?v=grade10-1"></script>
+</head>
+<body>
+  <a class="skip" href="#main">К основному содержанию</a>
+  <header class="top shell">
+    <a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a>
+    <button class="site-menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Меню разделов"><span aria-hidden="true"></span></button>
+    <nav id="site-nav" aria-label="Разделы сайта">
+      <a href="../../theory/">Теория</a>
+      <a href="../../experiments/">Опыты</a>
+      <a href="../" aria-current="page">Лабораторные</a>
+    </nav>
+    <a class="pill primary header-link" href="https://rusalingvo.ru/" target="_blank" rel="noopener">Русский язык</a>
+  </header>
+  <main id="main" class="shell section-page school-lab" data-lab="gay-lussac-law">
+    <header class="section-heading">
+      <a class="experiment-back" href="../">← Все лабораторные</a>
+      <p class="eyebrow section-category">Молекулярная физика · 10 класс</p>
+      <h1>Закон Гей-Люссака</h1>
+      <p>Проверь отношение объёмов и абсолютных температур воздуха при одинаковом давлении.</p>
+    </header>
+    <section class="simulator" aria-label="Виртуальная установка">
+      <div class="sim-workspace">
+        <figure class="sim-figure">
+          <figcaption class="panel-label">Схема установки</figcaption>
+          <svg id="lab-diagram" viewBox="0 0 520 260" role="img" aria-label="Схема · Закон Гей-Люссака"><path d="M0 220 L520 201 V260 H0 Z" fill="#191c20" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><text x="130" y="32" fill="#ff9b48" text-anchor="middle">Горячая вода</text><text x="390" y="32" fill="#83a7ff" text-anchor="middle">Холодная вода</text><path d="M60 96V220H200V96" fill="none" stroke="#d9dce4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="61" y="128" width="138" height="91" rx="2" fill="#173a69" stroke="none" stroke-width="2"/><line x1="60" y1="128" x2="200" y2="128" stroke="#83a7ff" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><path d="M320 96V220H460V96" fill="none" stroke="#666d80" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><rect x="321" y="165" width="138" height="54" rx="2" fill="#202737" stroke="none" stroke-width="2"/><line x1="320" y1="165" x2="460" y2="165" stroke="#666d80" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><rect x="118" y="115" width="26" height="84" rx="2" fill="#171d26" stroke="none" stroke-width="2"/><path d="M118 114.99999999999999V199H144V114.99999999999999" fill="none" stroke="#d9dce4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><text x="131" y="158" fill="#d9dce4" text-anchor="middle">ℓ₁</text><rect x="72" y="58" width="19" height="148" rx="2" fill="#292e39" stroke="#666d80" stroke-width="2"/><line x1="72" y1="67.25" x2="85" y2="67.25" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="76.5" x2="79" y2="76.5" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="85.75" x2="79" y2="85.75" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="95" x2="79" y2="95" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="104.25" x2="79" y2="104.25" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="113.5" x2="85" y2="113.5" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="122.75" x2="79" y2="122.75" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="132" x2="79" y2="132" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="141.25" x2="79" y2="141.25" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="150.5" x2="79" y2="150.5" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="159.75" x2="85" y2="159.75" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="169" x2="79" y2="169" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="178.25" x2="79" y2="178.25" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="187.5" x2="79" y2="187.5" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><line x1="72" y1="196.75" x2="79" y2="196.75" stroke="#d9dce4" stroke-width="2" stroke-linecap="round" stroke-dasharray=""/><text x="130" y="245" fill="#d9dce4" text-anchor="middle">60 °C</text><text x="390" y="245" fill="#d9dce4" text-anchor="middle">20 °C</text></svg>
+          <p class="lab-caption">Показания смоделированы.</p>
+        </figure>
+      </div>
+      <div class="sim-controls">
+        <p class="panel-label">Настройка установки</p>
+        <form id="lab-settings" aria-label="Настройка установки"></form>
+        <div class="sim-actions">
+          <button class="pill primary" id="lab-start" type="submit" form="lab-settings">Снять показания</button>
+          <button class="pill" id="lab-record" type="button" disabled>Записать замер</button>
+        </div>
+        <p id="lab-status" class="sim-status" role="status"></p>
+        <dl class="sim-readouts" id="lab-readouts" hidden></dl>
+        <noscript><p>Для измерений в виртуальной установке включи JavaScript.</p></noscript>
+      </div>
+    </section>
+    <section class="lesson lab-method" aria-labelledby="lab-method-title">
+      <h2 id="lab-method-title">Ход работы</h2>
+      <p><strong>Оборудование.</strong> Стеклянная трубка постоянного сечения, горячая и прохладная вода, два сосуда, пластилин, линейка и термометр.</p>
+      <ol><li>Прогрей трубку открытым концом вверх в горячей воде. Сними длину воздушного столба и температуру.</li><li>В модели трубка переносится закрытой, переворачивается и открывается под водой. Выбери холодную ванну и выровняй уровни воды в трубке и стакане перед отсчётом.</li><li>Переведи температуры в кельвины и сравни отношения длин и температур с учётом погрешностей.</li></ol>
+    </section>
+    <section class="lesson" aria-labelledby="lab-journal-title">
+      <h2 id="lab-journal-title">Журнал измерений</h2>
+      <div class="equation-grid lab-formulas"><div><div class="math-display"><math display="block"><mrow><mi>T</mi><mo>=</mo><mi>t</mi><mo>+</mo><mn>273,15</mn></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><mi>p</mi><mo>=</mo><msub><mi>p</mi><mi>атм</mi></msub><mo>−</mo><mi>ρ</mi><mi>g</mi><mi>H</mi></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><mi>A</mi><mo>=</mo><mfrac><msub><mi>ℓ</mi><mn>1</mn></msub><msub><mi>ℓ</mi><mn>2</mn></msub></mfrac></mrow></math></div></div><div><div class="math-display"><math display="block"><mrow><mi>B</mi><mo>=</mo><mfrac><msub><mi>T</mi><mn>1</mn></msub><msub><mi>T</mi><mn>2</mn></msub></mfrac></mrow></math></div></div></div>
+      <div class="measurements" tabindex="0" role="region" aria-label="Таблица измерений">
+        <table>
+          <thead><tr><th scope="col">Замер</th><th scope="col">ℓ₁, мм</th><th scope="col">ℓ₂, мм</th><th scope="col">t₁, °C</th><th scope="col">t₂, °C</th><th scope="col">T₁, К</th><th scope="col">T₂, К</th><th scope="col">A ± ΔA</th><th scope="col">εA</th><th scope="col">B ± ΔB</th><th scope="col">εB</th><th scope="col">Интервалы</th></tr></thead>
+          <tbody id="lab-results"></tbody>
+        </table>
+      </div>
+      <p class="lab-summary" id="lab-summary" aria-live="polite"></p>
+      <button class="pill" id="lab-clear" type="button" disabled>Очистить таблицу</button>
+    </section>
+    <section class="lab-question" aria-labelledby="lab-question-title">
+      <h2 id="lab-question-title">Вопрос для вывода</h2>
+      <p>Почему длину воздушного столба в холодной ванне снимают после выравнивания уровней?</p>
+    </section>
+    <p class="lab-source">Г. Я. Мякишев, Б. Б. Буховцев, Н. Н. Сотский. «Физика. 10 класс», с. 419–420.</p>
+    <a class="lab-reference" href="../uncertainty/">Как оценивать погрешности <span aria-hidden="true">↗</span></a>
+  </main>
+  <footer class="shell foot"><a class="brand" href="../../"><img class="mark" src="../../dist/assets/icons/logo.svg" width="40" height="40" alt="">Атлас физики</a></footer>
+</body>
+</html>
