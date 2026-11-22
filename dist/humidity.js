@@ -13,7 +13,7 @@ const MIN_DISPLAY_MASS = 0.05;
 const formatter = new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1});
 const format = number => formatter.format(number);
 const grams = number => number > EPSILON && number < MIN_DISPLAY_MASS ? '<0,1 г' : format(number) + ' г';
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const humidityReducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let state = {t:20,total:45,volume:1,vapor:0,paused:false};
 let activeCase = 'balance';
 
@@ -254,7 +254,7 @@ function drawVessel() {
     for (const [direction,color,fraction] of [[-1,palette.blue,.39],[1,palette.orange,.61]]) {
       const x = left+width*fraction;
       const y = waterline-9;
-      const offset = reducedMotion.matches ? 0 : Math.sin(motionTime*3+fraction)*3;
+      const offset = humidityReducedMotion.matches ? 0 : Math.sin(motionTime*3+fraction)*3;
       const start = y-15-direction*13+offset;
       const end = y-15+direction*13+offset;
       c.beginPath(); c.moveTo(x,start); c.lineTo(x,end);
@@ -274,7 +274,7 @@ function frame(now) {
   const dt = Math.max(0,Math.min((now-previous)/1000,.08));
   previous = now;
   if (!state.paused) {
-    if (!reducedMotion.matches) motionTime += dt * (.75+state.t/60);
+    if (!humidityReducedMotion.matches) motionTime += dt * (.75+state.t/60);
     const limit = saturationMass(state.t);
     const target = Math.min(state.total,limit);
     if (state.vapor !== target) {
@@ -287,7 +287,7 @@ function frame(now) {
       }
     }
   }
-  if (!state.paused && !reducedMotion.matches) drawVessel();
+  if (!state.paused && !humidityReducedMotion.matches) drawVessel();
   requestAnimationFrame(frame);
 }
 if (vesselContext && chartContext) {

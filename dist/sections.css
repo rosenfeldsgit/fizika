@@ -105,7 +105,7 @@
 .lesson h2 { margin: 0 0 14px; font-size: clamp(1.65rem, 3.2vw, 2.45rem); letter-spacing: -.035em; }
 .lesson .pill { margin-top: 18px; }
 .theory-note { max-width: 850px; margin-top: 0; }
-.theory-note + .theory-note { margin-top: clamp(34px, 5vw, 60px); border-top: 1px solid var(--edge); padding-top: 23px; }
+.theory-note + .theory-note { border-top: 1px solid var(--line); }
 .theory-note .note-figure { max-width: 580px; margin-top: 18px; }
 .theory-note h2 { margin: 30px 0 10px; font-size: clamp(1.4rem, 3vw, 2.1rem); }
 .theory-catalog h1 { margin-top: 12px; font-weight: 530; font-size: clamp(2.3rem, 4vw, 3.3rem); line-height: 1.04; letter-spacing: -.055em; }
@@ -113,12 +113,11 @@
 .theory-catalog summary::-webkit-details-marker { display: none; }
 .theory-catalog summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 .theory-catalog details[open] .chevron::before { transform: translateY(-2px) rotate(135deg); }
-.theory-catalog .theory-note, .theory-empty { margin: 0; padding: 0 14px 28px clamp(31px, 4.3vw, 60px); }
+.theory-catalog .theory-note { margin: 0; }
+.theory-catalog .theory-note + .theory-note { margin-top: clamp(34px, 5vw, 60px); padding-top: 23px; }
 .theory-catalog .theory-note h2 { margin: 0 0 16px; }
 .theory-catalog .theory-note h3 { margin: 24px 0 8px; }
-.theory-catalog .lesson > p, .theory-empty, .theory-catalog .equation-grid span { color: var(--light-muted); }
-.theory-catalog .equation-grid > div { background: #f5f5f5; border-color: var(--edge); }
-.theory-catalog .equation-grid .math-display { color: #2347a0; margin: 0; }
+.theory-catalog .equation-grid .math-display { color: #83a7ff; margin: 0; }
 .measurements-equations { max-width: 580px; margin: 14px 0; }
 .measurements-equations .math-display { color: var(--section-blue); margin: 0; }
 .theory-catalog .primary { background: var(--button-gray); color: var(--white); }

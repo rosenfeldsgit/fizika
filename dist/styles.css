@@ -94,6 +94,8 @@ nav a:hover, nav a[aria-current="page"] { color: var(--white); }
 .pill:not(:disabled):hover { background: var(--button-gray-hover); }
 .pill.primary { color: var(--ink); background: var(--white); }
 .pill.primary:not(:disabled):hover { background: #e1ebff; }
+.catalog-link { gap: 8px; }
+.catalog-link-back { margin-bottom: 16px; }
 .header-link { justify-self: end; min-width: 127px; }
 .site-menu-toggle { display: none; }
 .hero {
@@ -145,8 +147,8 @@ nav a:hover, nav a[aria-current="page"] { color: var(--white); }
   mask-image: linear-gradient(90deg, transparent, black 9%, black 96%, transparent);
 }
 #wave-canvas { display: block; width: 100%; height: 100%; }
-.catalog { background: var(--paper); color: var(--ink); color-scheme: light; padding: 56px 0 64px; }
-.catalog .eyebrow { color: var(--light-muted); }
+.catalog { background: var(--ink); color: var(--white); padding: 56px 0 64px; }
+.catalog .eyebrow { color: var(--muted); }
 .catalog-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 33px; }
 h2 { font-size: clamp(2.3rem, 4vw, 3.3rem); font-weight: 530; line-height: 1.04; letter-spacing: -.055em; }
 section h2 { margin: 17px 0 13px -.055em; }
@@ -196,6 +198,8 @@ section h2 { margin: 17px 0 13px -.055em; }
   padding: 82px 0 50px;
 }
 .experiment h2 { margin-top: 0; }
+.experiment-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; }
+.experiment-heading h2 { margin-bottom: 0; }
 .bench {
   margin-top: 36px;
   border: 1px solid var(--line);
@@ -249,9 +253,9 @@ dialog::backdrop { background: rgb(12 10 17 / 72%); backdrop-filter: blur(4px); 
 #material-content button { text-align: left; }
 .material-body .primary { background: var(--button-gray); color: var(--white); }
 .material-body .primary:not(:disabled):hover { background: var(--button-gray-hover); }
-.note-figure { border: 1px solid var(--edge); border-radius: 12px; padding: 12px; }
+.note-figure { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
 .note-figure svg { display: block; width: 100%; max-height: 190px; font: 12px "Golos Text", Arial, sans-serif; }
-.note-figure figcaption { text-align: center; color: var(--light-muted); font-size: .88rem; }
+.note-figure figcaption { text-align: center; color: var(--muted); font-size: .88rem; }
 math, var, #ray-diagram text, .note-figure svg text { font-family: var(--math-font); }
 .math-display {
   margin-block: .75rem;

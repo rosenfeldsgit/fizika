@@ -29,8 +29,9 @@ function makeElement(tag, label, className) {
 
 for (const control of lab.controls) {
   const id = "lab-setting-" + control.id;
-  if (control.id === "mode") {
-    const group = makeElement("fieldset", "", "lab-mode");
+  if (control.options) {
+    const group = makeElement("fieldset", "", "lab-options");
+    group.id = id;
     group.append(makeElement("legend", control.label));
     for (const [value, title] of control.options) {
       const input = makeElement("input");
@@ -43,44 +44,29 @@ for (const control of lab.controls) {
       });
       group.append(label);
     }
+    controlGroups.set(control.id, group);
     form.append(group);
     continue;
   }
-  const group = makeElement("div", "", control.options ? "lab-choice" : "sim-slider");
+  const group = makeElement("div", "", "sim-slider");
   const label = makeElement("label", control.label);
   label.htmlFor = id;
-  const input = makeElement(control.options ? "select" : "input");
-  input.id = id;
-  group.append(label);
-  if (control.options) {
-    for (const [value, title] of control.options) {
-      const option = makeElement("option", title);
-      option.value = value;
-      input.append(option);
-    }
-    input.value = control.value;
-    input.addEventListener("change", () => {
-      settings[control.id] = control.options.find(option => String(option[0]) === input.value)[0];
-      refreshSettings();
-    });
-  } else {
-    Object.assign(input, {type: "range", min: control.min, max: control.max, step: control.step, value: control.value});
-    const output = makeElement("output");
-    output.htmlFor = id;
-    function showValue() {
-      output.value = (number(input.valueAsNumber) + " " + control.unit).trim();
-      input.setAttribute("aria-valuetext", output.value);
-    }
-    showValue();
-    input.addEventListener("input", () => {
-      settings[control.id] = input.valueAsNumber;
-      showValue();
-      refreshSettings();
-    });
-    group.append(output);
+  const input = makeElement("input");
+  Object.assign(input, {id, type: "range", min: control.min, max: control.max, step: control.step, value: control.value});
+  const output = makeElement("output");
+  output.htmlFor = id;
+  function showValue() {
+    output.value = (number(input.valueAsNumber) + " " + control.unit).trim();
+    input.setAttribute("aria-valuetext", output.value);
   }
-  group.append(input);
-  controlGroups.set(control.id, {group, input});
+  showValue();
+  input.addEventListener("input", () => {
+    settings[control.id] = input.valueAsNumber;
+    showValue();
+    refreshSettings();
+  });
+  group.append(label, output, input);
+  controlGroups.set(control.id, group);
   form.append(group);
 }
 
@@ -117,9 +103,9 @@ function refreshSettings() {
   start.disabled = false;
   record.disabled = true;
   for (const control of lab.controls) {
-    if (control.mode) controlGroups.get(control.id).group.hidden = control.mode !== settings.mode;
+    if (control.mode) controlGroups.get(control.id).hidden = control.mode !== settings.mode;
   }
-  if (lab.slug === "resistor-connections") controlGroups.get("circuit").input.disabled = settings.switch === "closed";
+  if (lab.slug === "resistor-connections") controlGroups.get("circuit").disabled = settings.switch === "closed";
   status.textContent = "Сними показания при текущих настройках.";
   showResult();
   draw();

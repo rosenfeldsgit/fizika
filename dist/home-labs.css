@@ -1,8 +1,6 @@
 .home-labs {
   padding-block: clamp(40px, 6vw, 72px);
-  background: var(--paper);
-  color: var(--ink);
-  color-scheme: light;
+  background: var(--ink);
   --section-blue: #83a7ff;
   --section-orange: #ff9b48;
 }
@@ -15,8 +13,7 @@
   margin-bottom: 26px;
 }
 .home-labs-heading h2 { margin: 0 0 12px; }
-.home-labs-heading p { max-width: 52ch; color: var(--light-muted); line-height: 1.55; }
-.home-labs-heading .pill { gap: 8px; }
+.home-labs-heading p { max-width: 52ch; color: var(--muted); line-height: 1.55; }
 .home-labs-grid {
   display: grid;
   grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
@@ -59,9 +56,9 @@
   gap: 10px;
   min-width: 0;
   padding: clamp(17px, 2.6vw, 28px);
-  border: 1px solid #dfe2ef;
+  border: 1px solid #303451;
   border-radius: 20px;
-  background: #f2f4ff;
+  background: #111321;
 }
 .home-lab-book img {
   display: block;
@@ -73,7 +70,7 @@
 }
 .home-lab-book figcaption { display: grid; gap: 6px; }
 .home-lab-book strong { font-size: 1.15rem; font-weight: 600; }
-.home-lab-book span, .home-lab-book p { color: #4f5368; font-size: .88rem; line-height: 1.5; }
+.home-lab-book span, .home-lab-book p { color: var(--muted); font-size: .88rem; line-height: 1.5; }
 @media (max-width: 850px) {
   .home-labs-grid { grid-template-columns: 1fr; }
   .home-lab-book figure { display: flex; align-items: center; gap: 18px; }
